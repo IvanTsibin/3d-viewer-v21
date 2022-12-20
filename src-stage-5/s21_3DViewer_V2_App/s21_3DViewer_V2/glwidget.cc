@@ -206,10 +206,11 @@ void GLWidget::initializeGL()
     // Setup our vertex buffer object.
     m_modelVbo.create();
     m_modelVbo.bind();
-    m_modelVbo.allocate((m_model.count() + m_model.dotsCount())* sizeof(GLfloat));
+    m_modelVbo.allocate((m_model.count() + m_model.dotsCount() + m_model.trianglesCount())* sizeof(GLfloat));
 //    std::cout << "m_model.count() + m_model.dotsCount())* sizeof(GLfloat) = " << (m_model.count() + m_model.dotsCount())* sizeof(GLfloat) << std::endl;
     m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
     m_modelVbo.write(m_model.count() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
+    m_modelVbo.write((m_model.count() + m_model.dotsCount()) * sizeof(GLfloat), m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
 
     // Store the vertex attribute bindings for the program.
     setupVertexAttribs();
@@ -266,6 +267,7 @@ void GLWidget::paintGL()
     if (m_VertexType == 1 || m_VertexType == 2) {
         m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));
         glDrawArrays(GL_POINTS, m_model.linesAmount(), m_model.dotsAmount());
+        glDrawArrays(GL_TRIANGLES, m_model.linesAmount() + m_model.dotsAmount(), m_model.trianglesAmount());
     }
     m_program->release();
 }
