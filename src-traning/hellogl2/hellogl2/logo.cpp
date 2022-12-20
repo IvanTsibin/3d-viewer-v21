@@ -50,6 +50,7 @@
 
 #include "logo.h"
 #include <qmath.h>
+#include <iostream>
 
 Logo::Logo()
     : m_count(0)
@@ -107,10 +108,10 @@ void Logo::add(const QVector3D &v, const QVector3D &n)
     GLfloat *p = m_data.data() + m_count;
     *p++ = v.x();
     *p++ = v.y();
-    *p++ = v.z();
-    *p++ = n.x();
-    *p++ = n.y();
-    *p++ = n.z();
+    *p++ = v.z(); std::cout << "* p = " << *p;
+    *p++ = n.x(); std::cout << " n.x = " << n.x();
+    *p++ = n.y(); std::cout << " n.y = " << n.y();
+    *p++ = n.z(); std::cout << " n.z = " << n.z() << std::endl;
     m_count += 6;
 }
 
