@@ -43,6 +43,7 @@ private:
         int lines_number;
         int **lines;
     } figure_t;
+    void loadFigure(figure_t *figure);
     void init_figure(figure_t *figure);
     void creat_model(figure_t *figure);
     void print_figure(figure_t *figure);
