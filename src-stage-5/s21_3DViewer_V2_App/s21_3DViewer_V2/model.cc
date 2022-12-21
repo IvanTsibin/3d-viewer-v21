@@ -43,6 +43,9 @@ Model::Model()
             m_triangles_count += 6;
         }
     }
+//    for (int i = 0; i < m_triangles_count; i++) {
+//        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
+//    }
 }
 
 void Model::reLoadData(const char file_name[]) {
@@ -73,9 +76,9 @@ void Model::reLoadData(const char file_name[]) {
             m_count += 6;
         }
     }
-//    for (int i = 0; i < m_count; i++) {
-//        std::cout << "m_data[" << i << "] = " << m_data[i] << std::endl;
-//    }
+    for (int i = 0; i < m_count; i++) {
+        std::cout << "m_data[" << i << "] = " << m_data[i] << std::endl;
+    }
     std::cout << "ReLoad Step - 4 m_count = " << m_count << std::endl;
     m_dots_count = 0;
     GLfloat *g = m_dot_data.data();
@@ -85,6 +88,9 @@ void Model::reLoadData(const char file_name[]) {
             *g++ = temp_figure.dots[i][2];
             *g++ = 0; *g++ = 0; *g++ = 0;
             m_dots_count += 6;
+    }
+    for (int i = 0; i < m_dots_count; i++) {
+        std::cout << "m_dot_data[" << i << "] = " << m_dot_data[i] << std::endl;
     }
     std::cout << "ReLoad Step - 5 m_dots_count = " << m_dots_count << std::endl;
     m_triangles_count = 0;
@@ -97,6 +103,9 @@ void Model::reLoadData(const char file_name[]) {
             *k++ = 0; *k++ = 0; *k++ = 1;
             m_triangles_count += 6;
         }
+    }
+    for (int i = 0; i < m_triangles_count; i++) {
+        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
     }
     remove_figure(&temp_figure);
     std::cout << "ReLoad Step - 6" << std::endl;
@@ -116,6 +125,13 @@ void Model::modelMove(GLfloat xMove, GLfloat yMove, GLfloat zMove) {
         *g = *g + yMove; *g++;
         *g = *g + zMove; *g++;
         *g++; *g++; *g++;
+    }
+    GLfloat *k = m_triangles_data.data();
+    for (int i = 0; i < m_triangles_count; i += 6) {
+        *k = *k + xMove; *k++;
+        *k = *k + yMove; *k++;
+        *k = *k + zMove; *k++;
+        *k++; *k++; *k++;
     }
 }
 

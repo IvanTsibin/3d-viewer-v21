@@ -120,17 +120,23 @@ void GLWidget::get_file_name(char *str) {
         emit send_facets_amount(m_model.facetsAmount());
         emit send_vertexes_amount(m_model.vertexsAmount());
         m_modelVbo.bind();
-//        std::cout << "get_file_name Step - 1" << std::endl;
-        m_modelVbo.allocate((m_model.count() + m_model.dotsCount())* sizeof(GLfloat));
-//        std::cout << "get_file_name Step - 2" << std::endl;
-//          std::cout << "m_model.count() + m_model.dotsCount())* sizeof(GLfloat) = " << (m_model.count() + m_model.dotsCount())* sizeof(GLfloat) << std::endl;
+        std::cout << "get_file_name Step - 1" << std::endl;
+        m_modelVbo.allocate((m_model.count() + m_model.dotsCount() + m_model.trianglesCount())* sizeof(GLfloat));
+        std::cout << "get_file_name Step - 2" << std::endl;
+        std::cout << "m_model.count() + m_model.dotsCount())* sizeof(GLfloat) = " << (m_model.count() + m_model.dotsCount())* sizeof(GLfloat) << std::endl;
         m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
-//        std::cout << "get_file_name Step - 3" << std::endl;
+        std::cout << "get_file_name Step - 3" << std::endl;
         m_modelVbo.write(m_model.count() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
-//        std::cout << "get_file_name Step - 4" << std::endl;
+        std::cout << "get_file_name Step - 4" << std::endl;
+        m_modelVbo.write((m_model.count() +m_model.dotsCount())* sizeof(GLfloat), m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
+        std::cout << "get_file_name Step - 5" << std::endl;
+        GLfloat *p = (float*) m_model.constTriangleData();
+        for (int i = 0; i < m_model.trianglesCount(); i++) {
+            std::cout << "m_model.constTriangleData(" << i << ") = " << *p++ << std::endl;
+        }
     }
     update();
-//    std::cout << "get_file_name Step - 5" << std::endl;
+//    std::cout << "get_file_name Step - 6" << std::endl;
 }
 
 void GLWidget::setRedColor(int RedColor) {
