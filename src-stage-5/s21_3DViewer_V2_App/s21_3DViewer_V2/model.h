@@ -28,10 +28,10 @@ public:
     int trianglesCount() const {return m_triangles_count;}
     int linesAmount() const { return m_count / 6;}
     int dotsAmount() const {return m_dots_count / 6;}
+    int trianglesAmount() const {return m_triangles_count / 6;}
 
     int vertexsAmount() const {return vertexs_amount;}
     int facetsAmount() const {return facets_amount;}
-    int trianglesAmount() const {return triangles_amount;}
     void modelMove(GLfloat xMove, GLfloat yMove, GLfloat zMove);
 
 private:

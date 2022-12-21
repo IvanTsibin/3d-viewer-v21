@@ -213,7 +213,8 @@ void GLWidget::initializeGL()
     m_modelVbo.allocate((m_model.count() + m_model.dotsCount() + m_model.trianglesCount())* sizeof(GLfloat));
 //    std::cout << "m_model.count() + m_model.dotsCount())* sizeof(GLfloat) = " << (m_model.count() + m_model.dotsCount())* sizeof(GLfloat) << std::endl;
     m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
-    m_modelVbo.write(m_model.count() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
+//    m_modelVbo.write(0, m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
+    m_modelVbo.write(m_model.trianglesCount() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
     m_modelVbo.write((m_model.count() + m_model.dotsCount()) * sizeof(GLfloat), m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
 
     // Store the vertex attribute bindings for the program.
@@ -267,10 +268,12 @@ void GLWidget::paintGL()
     m_program->setUniformValue(m_mvMatrixLoc, m_camera * m_test);
     m_program->setUniformValue(m_PointSize, (GLfloat)m_VertexSize);
     m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorLine, m_GreenColorLine, m_BlueColorLine));
-//    glDrawArrays(GL_LINES, 0, m_model.linesAmount());
+    glDrawArrays(GL_LINES, 0, m_model.linesAmount());
+//    glDrawArrays(GL_TRIANGLES, 0, m_model.trianglesAmount());
     if (m_VertexType == 1 || m_VertexType == 2) {
-        m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));
+        m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));    
         glDrawArrays(GL_POINTS, m_model.linesAmount(), m_model.dotsAmount());
+//        glDrawArrays(GL_POINTS, m_model.trianglesAmount(), m_model.dotsAmount());
         glDrawArrays(GL_TRIANGLES, m_model.linesAmount() + m_model.dotsAmount(), m_model.trianglesAmount());
     }
     m_program->release();
@@ -284,14 +287,14 @@ void GLWidget::checkForSpecs() {
 
     if (m_lineType == 1) {
             glEnable(GL_LINE_STIPPLE);
-#ifdef __linux__
+#ifdef __linux__ || __APPLE__
             glLineStipple(4, 0x00FF);
 #endif
     } else {
             glDisable(GL_LINE_STIPPLE);
     }
     if (m_VertexType == 1) {
-#ifdef __linux__
+#ifdef __linux__ || __APPLE__
         glPointSize((GLfloat)m_VertexSize);
 #endif
         glEnable(GL_POINT_SMOOTH);
