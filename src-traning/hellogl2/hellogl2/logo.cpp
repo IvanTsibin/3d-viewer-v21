@@ -61,57 +61,64 @@ Logo::Logo()
     const GLfloat y1 = -0.14f;
     const GLfloat x2 = +0.14f;
     const GLfloat y2 = -0.06f;
-    const GLfloat x3 = +0.08f;
-    const GLfloat y3 = +0.00f;
-    const GLfloat x4 = +0.30f;
-    const GLfloat y4 = +0.22f;
+//    const GLfloat x3 = +0.08f;
+//    const GLfloat y3 = +0.00f;
+//    const GLfloat x4 = +0.30f;
+//    const GLfloat y4 = +0.22f;
 
     quad(x1, y1, x2, y2, y2, x2, y1, x1);
-    quad(x3, y3, x4, y4, y4, x4, y3, x3);
+//    quad(x3, y3, x4, y4, y4, x4, y3, x3);
 
     extrude(x1, y1, x2, y2);
     extrude(x2, y2, y2, x2);
     extrude(y2, x2, y1, x1);
     extrude(y1, x1, x1, y1);
-    extrude(x3, y3, x4, y4);
-    extrude(x4, y4, y4, x4);
-    extrude(y4, x4, y3, x3);
+//    extrude(x3, y3, x4, y4);
+//    extrude(x4, y4, y4, x4);
+//    extrude(y4, x4, y3, x3);
 
-    const int NumSectors = 100;
+//    const int NumSectors = 100;
 
-    for (int i = 0; i < NumSectors; ++i) {
-        GLfloat angle = (i * 2 * M_PI) / NumSectors;
-        GLfloat angleSin = qSin(angle);
-        GLfloat angleCos = qCos(angle);
-        const GLfloat x5 = 0.30f * angleSin;
-        const GLfloat y5 = 0.30f * angleCos;
-        const GLfloat x6 = 0.20f * angleSin;
-        const GLfloat y6 = 0.20f * angleCos;
+//    for (int i = 0; i < NumSectors; ++i) {
+//        GLfloat angle = (i * 2 * M_PI) / NumSectors;
+//        GLfloat angleSin = qSin(angle);
+//        GLfloat angleCos = qCos(angle);
+//        const GLfloat x5 = 0.30f * angleSin;
+//        const GLfloat y5 = 0.30f * angleCos;
+//        const GLfloat x6 = 0.20f * angleSin;
+//        const GLfloat y6 = 0.20f * angleCos;
 
-        angle = ((i + 1) * 2 * M_PI) / NumSectors;
-        angleSin = qSin(angle);
-        angleCos = qCos(angle);
-        const GLfloat x7 = 0.20f * angleSin;
-        const GLfloat y7 = 0.20f * angleCos;
-        const GLfloat x8 = 0.30f * angleSin;
-        const GLfloat y8 = 0.30f * angleCos;
+//        angle = ((i + 1) * 2 * M_PI) / NumSectors;
+//        angleSin = qSin(angle);
+//        angleCos = qCos(angle);
+//        const GLfloat x7 = 0.20f * angleSin;
+//        const GLfloat y7 = 0.20f * angleCos;
+//        const GLfloat x8 = 0.30f * angleSin;
+//        const GLfloat y8 = 0.30f * angleCos;
 
-        quad(x5, y5, x6, y6, x7, y7, x8, y8);
+//        quad(x5, y5, x6, y6, x7, y7, x8, y8);
 
-        extrude(x6, y6, x7, y7);
-        extrude(x8, y8, x5, y5);
-    }
+//        extrude(x6, y6, x7, y7);
+//        extrude(x8, y8, x5, y5);
+//    }
 }
 
 void Logo::add(const QVector3D &v, const QVector3D &n)
 {
     GLfloat *p = m_data.data() + m_count;
+    std::cout << "p = " << p;
+    std::cout << " v.x = " << v.x();
     *p++ = v.x();
+    std::cout << " v.y = " << v.y();
     *p++ = v.y();
-    *p++ = v.z(); std::cout << "* p = " << *p;
-    *p++ = n.x(); std::cout << " n.x = " << n.x();
-    *p++ = n.y(); std::cout << " n.y = " << n.y();
-    *p++ = n.z(); std::cout << " n.z = " << n.z() << std::endl;
+    std::cout << " v.z = " << v.z();
+    *p++ = v.z();
+    std::cout << " n.x = " << n.x();
+    *p++ = n.x();
+    std::cout << " n.y = " << n.y();
+    *p++ = n.y();
+    std::cout << " n.z = " << n.z() << std::endl;
+    *p++ = n.z();
     m_count += 6;
 }
 
