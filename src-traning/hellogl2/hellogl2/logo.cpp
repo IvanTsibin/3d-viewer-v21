@@ -73,6 +73,8 @@ Logo::Logo()
     extrude(x2, y2, y2, x2);
     extrude(y2, x2, y1, x1);
     extrude(y1, x1, x1, y1);
+
+
 //    extrude(x3, y3, x4, y4);
 //    extrude(x4, y4, y4, x4);
 //    extrude(y4, x4, y3, x3);
