@@ -33,10 +33,31 @@ void Model::loadFigure(figure_t *figure) {
     print_figure(figure);
     resize_and_move_figure(figure);
     std::cout << "LoadFigure Step - 3" << std::endl;
+    loadDots(figure);
+    loadLines(figure);
+    loadTriangles(figure);
+    std::cout << "LoadFigure Step - 4" << std::endl;
+}
+
+void Model::loadDots(figure_t *figure) {
+    m_dots_count = 0;
+    m_dot_data.resize(figure->dots_number * 6);
+    GLfloat *g = m_dot_data.data();
+    for (int i = 0; i < figure->dots_number; i++) {
+            *g++ = figure->dots[i][0];
+            *g++ = (-1) * figure->dots[i][1];
+            *g++ = figure->dots[i][2];
+            *g++ = 0; *g++ = 0; *g++ = 0;
+            m_dots_count += 6;
+    }
+//    for (int i = 0; i < m_dots_count; i++) {
+//        std::cout << "m_dot_data[" << i << "] = " << m_dot_data[i] << std::endl;
+//    }
+    std::cout << "LoadDots Step m_dots_count = " << m_dots_count << std::endl;
+}
+void Model::loadLines(figure_t *figure) {
     m_count = 0;
     m_data.resize(2 * figure->lines_number * 6);
-    m_dot_data.resize(figure->dots_number * 6);
-    m_triangles_data.resize(3 * figure->triangles_number * 6);
     GLfloat *p = m_data.data();
     for (int i = 0; i < figure->lines_number; i++) {
         for (int j = 0; j < 2; j++) {
@@ -50,21 +71,11 @@ void Model::loadFigure(figure_t *figure) {
     for (int i = 0; i < m_count; i++) {
         std::cout << "m_data[" << i << "] = " << m_data[i] << std::endl;
     }
-    std::cout << "LoadFigure Step - 4 m_count = " << m_count << std::endl;
-    m_dots_count = 0;
-    GLfloat *g = m_dot_data.data();
-    for (int i = 0; i < figure->dots_number; i++) {
-            *g++ = figure->dots[i][0];
-            *g++ = (-1) * figure->dots[i][1];
-            *g++ = figure->dots[i][2];
-            *g++ = 0; *g++ = 0; *g++ = 0;
-            m_dots_count += 6;
-    }
-    for (int i = 0; i < m_dots_count; i++) {
-        std::cout << "m_dot_data[" << i << "] = " << m_dot_data[i] << std::endl;
-    }
-    std::cout << "LoadFigure Step - 5 m_dots_count = " << m_dots_count << std::endl;
+    std::cout << "LoadLines m_count = " << m_count << std::endl;
+}
+void Model::loadTriangles(figure_t *figure) {
     m_triangles_count = 0;
+    m_triangles_data.resize(3 * figure->triangles_number * 6);
     GLfloat *k = m_triangles_data.data();
     for (int i = 0; i < figure->triangles_number; i++) {
         for (int j = 0; j < 3; j++) {
@@ -75,10 +86,10 @@ void Model::loadFigure(figure_t *figure) {
             m_triangles_count += 6;
         }
     }
-    for (int i = 0; i < m_triangles_count; i++) {
-        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
-    }
-    std::cout << "LoadFigure Step - 6" << std::endl;
+//    for (int i = 0; i < m_triangles_count; i++) {
+//        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
+//    }
+    std::cout << "LoadTriangles m_triangles_count = " << m_triangles_count << std::endl;
 }
 
 void Model::modelMove(GLfloat xMove, GLfloat yMove, GLfloat zMove) {

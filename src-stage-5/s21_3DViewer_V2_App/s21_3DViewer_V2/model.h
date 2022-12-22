@@ -44,6 +44,9 @@ private:
         int **lines;
     } figure_t;
     void loadFigure(figure_t *figure);
+    void loadDots(figure_t *figure);
+    void loadLines(figure_t *figure);
+    void loadTriangles(figure_t *figure);
     void init_figure(figure_t *figure);
     void creat_model(figure_t *figure);
     void print_figure(figure_t *figure);
