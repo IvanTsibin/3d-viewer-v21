@@ -75,16 +75,32 @@ void Model::loadLines(figure_t *figure) {
 }
 void Model::loadTriangles(figure_t *figure) {
     m_triangles_count = 0;
-    m_triangles_data.resize(3 * figure->triangles_number * 6);
+    m_triangles_data.resize(2 * 3 * figure->triangles_number * 6);
     GLfloat *k = m_triangles_data.data();
+    QVector3D normal;
+    double x1, y1, z1, x2, y2, z2;
     for (int i = 0; i < figure->triangles_number; i++) {
+        x1 = figure->dots[figure->triangles[i][0]][0] - figure->dots[figure->triangles[i][2]][0];
+        y1 = figure->dots[figure->triangles[i][0]][1] - figure->dots[figure->triangles[i][2]][1];
+        z1 = figure->dots[figure->triangles[i][0]][2] - figure->dots[figure->triangles[i][2]][2];
+        x2 = figure->dots[figure->triangles[i][0]][0] - figure->dots[figure->triangles[i][1]][0];
+        y2 = figure->dots[figure->triangles[i][0]][1] - figure->dots[figure->triangles[i][1]][1];
+        z2 = figure->dots[figure->triangles[i][0]][2] - figure->dots[figure->triangles[i][1]][2];
+        normal = QVector3D::normal(QVector3D(x1, y1, z1), QVector3D(x2, y2, z2));
         for (int j = 0; j < 3; j++) {
             *k++ = figure->dots[figure->triangles[i][j]][0];
             *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
             *k++ = figure->dots[figure->triangles[i][j]][2];
-            *k++ = 0; *k++ = 0; *k++ = 1;
+            *k++ = normal.x(); *k++ = normal.y(); *k++ = normal.z();
             m_triangles_count += 6;
         }
+//        for (int j = 0; j < 3; j++) {
+//            *k++ = figure->dots[figure->triangles[i][j]][0];
+//            *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
+//            *k++ = figure->dots[figure->triangles[i][j]][2];
+//            *k++ = - normal.x(); *k++ = - normal.y(); *k++ = - normal.z();
+//            m_triangles_count += 6;
+//        }
     }
 //    for (int i = 0; i < m_triangles_count; i++) {
 //        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
