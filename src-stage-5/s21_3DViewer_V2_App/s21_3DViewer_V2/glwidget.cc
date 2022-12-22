@@ -295,7 +295,7 @@ void GLWidget::paintGL()
     m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorLine, m_GreenColorLine, m_BlueColorLine));
     glDrawArrays(GL_LINES, 0, m_model.linesAmount());
     if (m_VertexType == 1 || m_VertexType == 2) {
-        m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));    
+        m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));
         glDrawArrays(GL_POINTS, m_model.linesAmount(), m_model.dotsAmount());
         glDrawArrays(GL_TRIANGLES, m_model.linesAmount() + m_model.dotsAmount(), m_model.trianglesAmount());
     }

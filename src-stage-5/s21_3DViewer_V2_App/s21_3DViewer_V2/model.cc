@@ -80,6 +80,7 @@ void Model::loadTriangles(figure_t *figure) {
     QVector3D normal;
     double x1, y1, z1, x2, y2, z2;
     for (int i = 0; i < figure->triangles_number; i++) {
+//    for (int i = 0; i < 2; i++) {
         x1 = figure->dots[figure->triangles[i][2]][0] - figure->dots[figure->triangles[i][0]][0];
         y1 = figure->dots[figure->triangles[i][2]][1] - figure->dots[figure->triangles[i][0]][1];
         z1 = figure->dots[figure->triangles[i][2]][2] - figure->dots[figure->triangles[i][0]][2];
@@ -88,11 +89,18 @@ void Model::loadTriangles(figure_t *figure) {
         z2 = figure->dots[figure->triangles[i][1]][2] - figure->dots[figure->triangles[i][0]][2];
 
         normal = QVector3D::normal(QVector3D(x2, y2, z2), QVector3D(x1, y1, z1));
-        for (int j = 0; j < 3; j++) {
+        for (int j = 2; j > -1; j--) {
             *k++ = figure->dots[figure->triangles[i][j]][0];
             *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
             *k++ = figure->dots[figure->triangles[i][j]][2];
             *k++ = normal.x(); *k++ = normal.y(); *k++ = normal.z();
+            m_triangles_count += 6;
+        }
+        for (int j = 0; j < 3; j++) {
+            *k++ = figure->dots[figure->triangles[i][j]][0];
+            *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
+            *k++ = figure->dots[figure->triangles[i][j]][2];
+            *k++ = - normal.x(); *k++ = - normal.y(); *k++ = - normal.z();
             m_triangles_count += 6;
         }
     }
