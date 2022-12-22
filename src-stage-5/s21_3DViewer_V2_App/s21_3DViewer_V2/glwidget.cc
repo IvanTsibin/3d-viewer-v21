@@ -128,9 +128,7 @@ static const char *vertexShaderSourceCore =
     "void main() {\n"
     "   vert = vertex.xyz;\n"
     "   vertNormal = normalMatrix * normal;\n"
-    "   vec4 moved_vertex = mvMatrix * vertex;\n"
-    " //  gl_Position = projMatrix * moved_vertex;\n"
-    "   gl_Position = mvMatrix * vertex;\n"
+    "   gl_Position = projMatrix * mvMatrix * vertex;\n"
     "}\n";
 
 static const char *fragmentShaderSourceCore =
@@ -146,39 +144,6 @@ static const char *fragmentShaderSourceCore =
     "   highp vec3 col = clamp(color * 0.2 + color * 0.8 * NL, 0.0, 1.0);\n"
     "   fragColor = vec4(col, 1.0);\n"
     "}\n";
-
-
-
-
-
-//static const char *vertexShaderSource =
-//    "attribute vec4 vertex;\n"
-//    "attribute vec3 normal;\n"
-//    "varying vec3 vert;\n"
-//    "varying vec3 vertNormal;\n"
-//    "uniform mat4 projMatrix;\n"
-//    "uniform mat4 mvMatrix;\n"
-//    "uniform mat3 normalMatrix;\n"
-//    "void main() {\n"
-//    "   vert = vertex.xyz;\n"
-//    "   vertNormal = normalMatrix * normal;\n"
-//    "   gl_Position = projMatrix * mvMatrix * vertex;\n"
-//    "}\n";
-
-//static const char *fragmentShaderSource =
-//    "varying highp vec3 vert;\n"
-//    "varying highp vec3 vertNormal;\n"
-//    "uniform highp vec3 lightPos;\n"
-//    "void main() {\n"
-//    "   highp vec3 L = normalize(lightPos - vert);\n"
-//    "   highp float NL = max(dot(normalize(vertNormal), L), 0.0);\n"
-//    "   highp vec3 color = vec3(0.39, 1.0, 0.0);\n"
-//    "   highp vec3 col = clamp(color * 0.2 + color * 0.8 * NL, 0.0, 1.0);\n"
-//    "   gl_FragColor = vec4(col, 1.0);\n"
-//    "}\n";
-
-
-
 
 static const char *vertexShaderSource =
     "attribute vec4 vertex;\n"
@@ -209,12 +174,12 @@ static const char *fragmentShaderSource =
     "void main() {\n"       
     "   highp vec3 L = normalize(lightPos - vert);\n"
     "   highp float NL = max(dot(normalize(vertNormal), L), 0.0);\n"
-//    "  //  highp vec3 color = vec3(0.39, 1.0, 0.0);\n"
+//    "   highp vec3 color = vec3(0.39, 1.0, 0.0);\n"
 //    "  //  highp vec3 color = ColorLine * forColor;\n"
     "   highp vec3 color = ColorLine;\n"
     "   highp vec3 col = clamp(color * 0.2 + color * 0.8 * NL, 0.0, 1.0);\n"
     "   gl_FragColor = vec4(col, 1.0);\n"
-//    "   // gl_FragColor = vec4(color, 1.0);\n"
+    "  // gl_FragColor = vec4(color, 1.0);\n"
     "}\n";
 
 void GLWidget::initializeGL()
@@ -232,6 +197,7 @@ void GLWidget::initializeGL()
     initializeOpenGLFunctions();
 
     glClearColor(m_RedColor, m_GreenColor, m_BlueColor, m_transparent ? 0 : 1);
+
     m_program = new QOpenGLShaderProgram;
     m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, m_core ? vertexShaderSourceCore : vertexShaderSource);
     m_program->addShaderFromSourceCode(QOpenGLShader::Fragment, m_core ? fragmentShaderSourceCore : fragmentShaderSource);
@@ -259,10 +225,10 @@ void GLWidget::initializeGL()
     // Setup our vertex buffer object.
     m_modelVbo.create();
     m_modelVbo.bind();
-    GLfloat *p = (float*) m_model.constTriangleData();
-    for (int i = 0; i < m_model.trianglesCount(); i++) {
-        std::cout << "m_model.constTriangleData(" << i << ") = " << *p++ << std::endl;
-    }
+//    GLfloat *p = (float*) m_model.constTriangleData();
+//    for (int i = 0; i < m_model.trianglesCount(); i++) {
+//        std::cout << "m_model.constTriangleData(" << i << ") = " << *p++ << std::endl;
+//    }
     m_modelVbo.allocate((m_model.count() + m_model.dotsCount() + m_model.trianglesCount())* sizeof(GLfloat));
     m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
     m_modelVbo.write(m_model.trianglesCount() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
@@ -304,8 +270,6 @@ void GLWidget::paintGL()
     unary_matrix.move_matrix((float)m_xMove / 100, (float)m_yMove / 100, (float)m_zMove / 100);
     QMatrix4x4 m_test = unary_matrix.convertToQMatrix4x4();
 
-    QMatrix3x3 normalMatrix = m_test.normalMatrix();
-    m_program->setUniformValue(m_normalMatrixLoc, normalMatrix);
 
     QOpenGLVertexArrayObject::Binder vaoBinder(&m_vao);
 
@@ -322,6 +286,11 @@ void GLWidget::paintGL()
     m_program->bind();
     m_program->setUniformValue(m_projMatrixLoc, m_test_proj);
     m_program->setUniformValue(m_mvMatrixLoc, m_camera * m_test);
+
+
+    QMatrix3x3 normalMatrix = m_test.normalMatrix();
+    m_program->setUniformValue(m_normalMatrixLoc, normalMatrix);
+
     m_program->setUniformValue(m_PointSize, (GLfloat)m_VertexSize);
     m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorLine, m_GreenColorLine, m_BlueColorLine));
     glDrawArrays(GL_LINES, 0, m_model.linesAmount());
