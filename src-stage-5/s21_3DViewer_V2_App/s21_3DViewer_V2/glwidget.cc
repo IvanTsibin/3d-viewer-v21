@@ -54,6 +54,7 @@
 #include <QCoreApplication>
 #include <math.h>
 #include <iostream>
+#include <stdio.h>
 #include <QVector3D>
 
 bool GLWidget::m_transparent = false;
@@ -82,6 +83,7 @@ GLWidget::GLWidget(QWidget *parent)
       m_perspect(1),
       m_lineType(0),
       m_aspect(1.0),
+      m_facets(1),
       m_program(0),
       gifCounter(-1),
       gifFileName(nullptr)
@@ -303,6 +305,8 @@ void GLWidget::paintGL()
     if (m_VertexType == 1 || m_VertexType == 2) {
         m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));
         glDrawArrays(GL_POINTS, m_model.linesAmount(), m_model.dotsAmount());
+    }
+    if (m_facets == 1) {
         m_program->setUniformValue(m_colorFlag, 1);
         glDrawArrays(GL_TRIANGLES, m_model.linesAmount() + m_model.dotsAmount(), m_model.trianglesAmount());
     }

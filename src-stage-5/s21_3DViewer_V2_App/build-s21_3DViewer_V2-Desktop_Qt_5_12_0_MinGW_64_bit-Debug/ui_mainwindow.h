@@ -77,6 +77,7 @@ public:
     QHBoxLayout *horizontalLayout_28;
     QHBoxLayout *horizontalLayout_29;
     QCheckBox *CBPerspective;
+    QCheckBox *CBFacets;
     QPushButton *PBToZero;
     QCheckBox *CBDashLine;
     QHBoxLayout *horizontalLayout_30;
@@ -421,6 +422,12 @@ public:
 
         horizontalLayout_29->addWidget(CBPerspective);
 
+        CBFacets = new QCheckBox(centralWidget);
+        CBFacets->setObjectName(QString::fromUtf8("CBFacets"));
+        CBFacets->setChecked(true);
+
+        horizontalLayout_29->addWidget(CBFacets);
+
         PBToZero = new QPushButton(centralWidget);
         PBToZero->setObjectName(QString::fromUtf8("PBToZero"));
         PBToZero->setFont(font);
@@ -757,6 +764,7 @@ public:
         label_21->setText(QApplication::translate("MainWindow", " Red    Green    Blue - lines", nullptr));
         label_22->setText(QApplication::translate("MainWindow", " Red    Green    Blue - vertex", nullptr));
         CBPerspective->setText(QApplication::translate("MainWindow", "Perspective", nullptr));
+        CBFacets->setText(QApplication::translate("MainWindow", "Facets", nullptr));
         PBToZero->setText(QApplication::translate("MainWindow", "ToZero", nullptr));
         CBDashLine->setText(QApplication::translate("MainWindow", "DashLine", nullptr));
         label_11->setText(QApplication::translate("MainWindow", "Line's width", nullptr));

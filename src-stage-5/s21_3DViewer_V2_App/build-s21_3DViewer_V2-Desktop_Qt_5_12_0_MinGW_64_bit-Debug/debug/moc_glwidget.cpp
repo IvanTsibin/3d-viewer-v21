@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_GLWidget_t {
-    QByteArrayData data[75];
-    char stringdata0[1069];
+    QByteArrayData data[78];
+    char stringdata0[1112];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -73,39 +73,42 @@ QT_MOC_LITERAL(38, 547, 17), // "VertexTypeChanged"
 QT_MOC_LITERAL(39, 565, 10), // "VertexType"
 QT_MOC_LITERAL(40, 576, 17), // "PersectiveChanged"
 QT_MOC_LITERAL(41, 594, 17), // "PerspectiveStatus"
-QT_MOC_LITERAL(42, 612, 15), // "DashLineChanged"
-QT_MOC_LITERAL(43, 628, 8), // "DashLine"
-QT_MOC_LITERAL(44, 637, 12), // "setXRotation"
-QT_MOC_LITERAL(45, 650, 12), // "setYRotation"
-QT_MOC_LITERAL(46, 663, 12), // "setZRotation"
-QT_MOC_LITERAL(47, 676, 9), // "setMultip"
-QT_MOC_LITERAL(48, 686, 8), // "setXMove"
-QT_MOC_LITERAL(49, 695, 8), // "setYMove"
-QT_MOC_LITERAL(50, 704, 8), // "setZMove"
-QT_MOC_LITERAL(51, 713, 7), // "cleanup"
-QT_MOC_LITERAL(52, 721, 28), // "get_main_window_size_changed"
-QT_MOC_LITERAL(53, 750, 8), // "iconSize"
-QT_MOC_LITERAL(54, 759, 13), // "get_file_name"
-QT_MOC_LITERAL(55, 773, 6), // "char[]"
-QT_MOC_LITERAL(56, 780, 3), // "str"
-QT_MOC_LITERAL(57, 784, 11), // "setRedColor"
-QT_MOC_LITERAL(58, 796, 13), // "setGreenColor"
-QT_MOC_LITERAL(59, 810, 12), // "setBlueColor"
-QT_MOC_LITERAL(60, 823, 15), // "setRedColorLine"
-QT_MOC_LITERAL(61, 839, 17), // "setGreenColorLine"
-QT_MOC_LITERAL(62, 857, 16), // "setBlueColorLine"
-QT_MOC_LITERAL(63, 874, 17), // "setRedColorVertex"
-QT_MOC_LITERAL(64, 892, 19), // "setGreenColorVertex"
-QT_MOC_LITERAL(65, 912, 18), // "setBlueColorVertex"
-QT_MOC_LITERAL(66, 931, 12), // "setLineWidth"
-QT_MOC_LITERAL(67, 944, 13), // "setVertexSize"
-QT_MOC_LITERAL(68, 958, 13), // "setVertexType"
-QT_MOC_LITERAL(69, 972, 20), // "setPerspectiveStatus"
-QT_MOC_LITERAL(70, 993, 17), // "setDashLineSignal"
-QT_MOC_LITERAL(71, 1011, 6), // "signal"
-QT_MOC_LITERAL(72, 1018, 14), // "getSaveJpgFile"
-QT_MOC_LITERAL(73, 1033, 14), // "getSaveBmpFile"
-QT_MOC_LITERAL(74, 1048, 20) // "getSaveGifFileSignal"
+QT_MOC_LITERAL(42, 612, 13), // "FacetsChanged"
+QT_MOC_LITERAL(43, 626, 12), // "FacetsStatus"
+QT_MOC_LITERAL(44, 639, 15), // "DashLineChanged"
+QT_MOC_LITERAL(45, 655, 8), // "DashLine"
+QT_MOC_LITERAL(46, 664, 12), // "setXRotation"
+QT_MOC_LITERAL(47, 677, 12), // "setYRotation"
+QT_MOC_LITERAL(48, 690, 12), // "setZRotation"
+QT_MOC_LITERAL(49, 703, 9), // "setMultip"
+QT_MOC_LITERAL(50, 713, 8), // "setXMove"
+QT_MOC_LITERAL(51, 722, 8), // "setYMove"
+QT_MOC_LITERAL(52, 731, 8), // "setZMove"
+QT_MOC_LITERAL(53, 740, 7), // "cleanup"
+QT_MOC_LITERAL(54, 748, 28), // "get_main_window_size_changed"
+QT_MOC_LITERAL(55, 777, 8), // "iconSize"
+QT_MOC_LITERAL(56, 786, 13), // "get_file_name"
+QT_MOC_LITERAL(57, 800, 6), // "char[]"
+QT_MOC_LITERAL(58, 807, 3), // "str"
+QT_MOC_LITERAL(59, 811, 11), // "setRedColor"
+QT_MOC_LITERAL(60, 823, 13), // "setGreenColor"
+QT_MOC_LITERAL(61, 837, 12), // "setBlueColor"
+QT_MOC_LITERAL(62, 850, 15), // "setRedColorLine"
+QT_MOC_LITERAL(63, 866, 17), // "setGreenColorLine"
+QT_MOC_LITERAL(64, 884, 16), // "setBlueColorLine"
+QT_MOC_LITERAL(65, 901, 17), // "setRedColorVertex"
+QT_MOC_LITERAL(66, 919, 19), // "setGreenColorVertex"
+QT_MOC_LITERAL(67, 939, 18), // "setBlueColorVertex"
+QT_MOC_LITERAL(68, 958, 12), // "setLineWidth"
+QT_MOC_LITERAL(69, 971, 13), // "setVertexSize"
+QT_MOC_LITERAL(70, 985, 13), // "setVertexType"
+QT_MOC_LITERAL(71, 999, 20), // "setPerspectiveStatus"
+QT_MOC_LITERAL(72, 1020, 15), // "setFacetsStatus"
+QT_MOC_LITERAL(73, 1036, 17), // "setDashLineSignal"
+QT_MOC_LITERAL(74, 1054, 6), // "signal"
+QT_MOC_LITERAL(75, 1061, 14), // "getSaveJpgFile"
+QT_MOC_LITERAL(76, 1076, 14), // "getSaveBmpFile"
+QT_MOC_LITERAL(77, 1091, 20) // "getSaveGifFileSignal"
 
     },
     "GLWidget\0xRotationChanged\0\0angle\0"
@@ -125,9 +128,10 @@ QT_MOC_LITERAL(74, 1048, 20) // "getSaveGifFileSignal"
     "LineWidthChanged\0LineWidth\0VertexSizeChanged\0"
     "VertexSize\0VertexTypeChanged\0VertexType\0"
     "PersectiveChanged\0PerspectiveStatus\0"
-    "DashLineChanged\0DashLine\0setXRotation\0"
-    "setYRotation\0setZRotation\0setMultip\0"
-    "setXMove\0setYMove\0setZMove\0cleanup\0"
+    "FacetsChanged\0FacetsStatus\0DashLineChanged\0"
+    "DashLine\0setXRotation\0setYRotation\0"
+    "setZRotation\0setMultip\0setXMove\0"
+    "setYMove\0setZMove\0cleanup\0"
     "get_main_window_size_changed\0iconSize\0"
     "get_file_name\0char[]\0str\0setRedColor\0"
     "setGreenColor\0setBlueColor\0setRedColorLine\0"
@@ -135,9 +139,9 @@ QT_MOC_LITERAL(74, 1048, 20) // "getSaveGifFileSignal"
     "setRedColorVertex\0setGreenColorVertex\0"
     "setBlueColorVertex\0setLineWidth\0"
     "setVertexSize\0setVertexType\0"
-    "setPerspectiveStatus\0setDashLineSignal\0"
-    "signal\0getSaveJpgFile\0getSaveBmpFile\0"
-    "getSaveGifFileSignal"
+    "setPerspectiveStatus\0setFacetsStatus\0"
+    "setDashLineSignal\0signal\0getSaveJpgFile\0"
+    "getSaveBmpFile\0getSaveGifFileSignal"
 };
 #undef QT_MOC_LITERAL
 
@@ -147,66 +151,68 @@ static const uint qt_meta_data_GLWidget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      50,   14, // methods
+      52,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      23,       // signalCount
+      24,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  264,    2, 0x06 /* Public */,
-       4,    1,  267,    2, 0x06 /* Public */,
-       5,    1,  270,    2, 0x06 /* Public */,
-       6,    1,  273,    2, 0x06 /* Public */,
-       8,    1,  276,    2, 0x06 /* Public */,
-      10,    1,  279,    2, 0x06 /* Public */,
-      12,    1,  282,    2, 0x06 /* Public */,
-      14,    1,  285,    2, 0x06 /* Public */,
-      15,    1,  288,    2, 0x06 /* Public */,
-      16,    1,  291,    2, 0x06 /* Public */,
-      18,    1,  294,    2, 0x06 /* Public */,
-      20,    1,  297,    2, 0x06 /* Public */,
-      22,    1,  300,    2, 0x06 /* Public */,
-      24,    1,  303,    2, 0x06 /* Public */,
-      26,    1,  306,    2, 0x06 /* Public */,
-      28,    1,  309,    2, 0x06 /* Public */,
-      30,    1,  312,    2, 0x06 /* Public */,
-      32,    1,  315,    2, 0x06 /* Public */,
-      34,    1,  318,    2, 0x06 /* Public */,
-      36,    1,  321,    2, 0x06 /* Public */,
-      38,    1,  324,    2, 0x06 /* Public */,
-      40,    1,  327,    2, 0x06 /* Public */,
-      42,    1,  330,    2, 0x06 /* Public */,
+       1,    1,  274,    2, 0x06 /* Public */,
+       4,    1,  277,    2, 0x06 /* Public */,
+       5,    1,  280,    2, 0x06 /* Public */,
+       6,    1,  283,    2, 0x06 /* Public */,
+       8,    1,  286,    2, 0x06 /* Public */,
+      10,    1,  289,    2, 0x06 /* Public */,
+      12,    1,  292,    2, 0x06 /* Public */,
+      14,    1,  295,    2, 0x06 /* Public */,
+      15,    1,  298,    2, 0x06 /* Public */,
+      16,    1,  301,    2, 0x06 /* Public */,
+      18,    1,  304,    2, 0x06 /* Public */,
+      20,    1,  307,    2, 0x06 /* Public */,
+      22,    1,  310,    2, 0x06 /* Public */,
+      24,    1,  313,    2, 0x06 /* Public */,
+      26,    1,  316,    2, 0x06 /* Public */,
+      28,    1,  319,    2, 0x06 /* Public */,
+      30,    1,  322,    2, 0x06 /* Public */,
+      32,    1,  325,    2, 0x06 /* Public */,
+      34,    1,  328,    2, 0x06 /* Public */,
+      36,    1,  331,    2, 0x06 /* Public */,
+      38,    1,  334,    2, 0x06 /* Public */,
+      40,    1,  337,    2, 0x06 /* Public */,
+      42,    1,  340,    2, 0x06 /* Public */,
+      44,    1,  343,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      44,    1,  333,    2, 0x0a /* Public */,
-      45,    1,  336,    2, 0x0a /* Public */,
-      46,    1,  339,    2, 0x0a /* Public */,
-      47,    1,  342,    2, 0x0a /* Public */,
-      48,    1,  345,    2, 0x0a /* Public */,
-      49,    1,  348,    2, 0x0a /* Public */,
-      50,    1,  351,    2, 0x0a /* Public */,
-      51,    0,  354,    2, 0x0a /* Public */,
-      52,    1,  355,    2, 0x0a /* Public */,
-      54,    1,  358,    2, 0x0a /* Public */,
-      57,    1,  361,    2, 0x0a /* Public */,
-      58,    1,  364,    2, 0x0a /* Public */,
-      59,    1,  367,    2, 0x0a /* Public */,
-      60,    1,  370,    2, 0x0a /* Public */,
-      61,    1,  373,    2, 0x0a /* Public */,
-      62,    1,  376,    2, 0x0a /* Public */,
-      63,    1,  379,    2, 0x0a /* Public */,
-      64,    1,  382,    2, 0x0a /* Public */,
-      65,    1,  385,    2, 0x0a /* Public */,
-      66,    1,  388,    2, 0x0a /* Public */,
-      67,    1,  391,    2, 0x0a /* Public */,
-      68,    1,  394,    2, 0x0a /* Public */,
-      69,    1,  397,    2, 0x0a /* Public */,
-      70,    1,  400,    2, 0x0a /* Public */,
-      72,    1,  403,    2, 0x0a /* Public */,
-      73,    1,  406,    2, 0x0a /* Public */,
-      74,    1,  409,    2, 0x0a /* Public */,
+      46,    1,  346,    2, 0x0a /* Public */,
+      47,    1,  349,    2, 0x0a /* Public */,
+      48,    1,  352,    2, 0x0a /* Public */,
+      49,    1,  355,    2, 0x0a /* Public */,
+      50,    1,  358,    2, 0x0a /* Public */,
+      51,    1,  361,    2, 0x0a /* Public */,
+      52,    1,  364,    2, 0x0a /* Public */,
+      53,    0,  367,    2, 0x0a /* Public */,
+      54,    1,  368,    2, 0x0a /* Public */,
+      56,    1,  371,    2, 0x0a /* Public */,
+      59,    1,  374,    2, 0x0a /* Public */,
+      60,    1,  377,    2, 0x0a /* Public */,
+      61,    1,  380,    2, 0x0a /* Public */,
+      62,    1,  383,    2, 0x0a /* Public */,
+      63,    1,  386,    2, 0x0a /* Public */,
+      64,    1,  389,    2, 0x0a /* Public */,
+      65,    1,  392,    2, 0x0a /* Public */,
+      66,    1,  395,    2, 0x0a /* Public */,
+      67,    1,  398,    2, 0x0a /* Public */,
+      68,    1,  401,    2, 0x0a /* Public */,
+      69,    1,  404,    2, 0x0a /* Public */,
+      70,    1,  407,    2, 0x0a /* Public */,
+      71,    1,  410,    2, 0x0a /* Public */,
+      72,    1,  413,    2, 0x0a /* Public */,
+      73,    1,  416,    2, 0x0a /* Public */,
+      75,    1,  419,    2, 0x0a /* Public */,
+      76,    1,  422,    2, 0x0a /* Public */,
+      77,    1,  425,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -232,6 +238,7 @@ static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,   39,
     QMetaType::Void, QMetaType::Int,   41,
     QMetaType::Void, QMetaType::Int,   43,
+    QMetaType::Void, QMetaType::Int,   45,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -242,8 +249,8 @@ static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QSize,   53,
-    QMetaType::Void, 0x80000000 | 55,   56,
+    QMetaType::Void, QMetaType::QSize,   55,
+    QMetaType::Void, 0x80000000 | 57,   58,
     QMetaType::Void, QMetaType::Int,   17,
     QMetaType::Void, QMetaType::Int,   19,
     QMetaType::Void, QMetaType::Int,   21,
@@ -257,10 +264,11 @@ static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,   37,
     QMetaType::Void, QMetaType::Int,   39,
     QMetaType::Void, QMetaType::Int,   41,
-    QMetaType::Void, QMetaType::Int,   71,
-    QMetaType::Void, 0x80000000 | 55,   56,
-    QMetaType::Void, 0x80000000 | 55,   56,
-    QMetaType::Void, 0x80000000 | 55,   56,
+    QMetaType::Void, QMetaType::Int,   43,
+    QMetaType::Void, QMetaType::Int,   74,
+    QMetaType::Void, 0x80000000 | 57,   58,
+    QMetaType::Void, 0x80000000 | 57,   58,
+    QMetaType::Void, 0x80000000 | 57,   58,
 
        0        // eod
 };
@@ -293,34 +301,36 @@ void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 19: _t->VertexSizeChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 20: _t->VertexTypeChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 21: _t->PersectiveChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 22: _t->DashLineChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 23: _t->setXRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 24: _t->setYRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 25: _t->setZRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 26: _t->setMultip((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 27: _t->setXMove((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 28: _t->setYMove((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 29: _t->setZMove((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 30: _t->cleanup(); break;
-        case 31: _t->get_main_window_size_changed((*reinterpret_cast< const QSize(*)>(_a[1]))); break;
-        case 32: _t->get_file_name((*reinterpret_cast< char(*)[]>(_a[1]))); break;
-        case 33: _t->setRedColor((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 34: _t->setGreenColor((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 35: _t->setBlueColor((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 36: _t->setRedColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 37: _t->setGreenColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 38: _t->setBlueColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 39: _t->setRedColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 40: _t->setGreenColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 41: _t->setBlueColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 42: _t->setLineWidth((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 43: _t->setVertexSize((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 44: _t->setVertexType((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 45: _t->setPerspectiveStatus((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 46: _t->setDashLineSignal((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 47: _t->getSaveJpgFile((*reinterpret_cast< char(*)[]>(_a[1]))); break;
-        case 48: _t->getSaveBmpFile((*reinterpret_cast< char(*)[]>(_a[1]))); break;
-        case 49: _t->getSaveGifFileSignal((*reinterpret_cast< char(*)[]>(_a[1]))); break;
+        case 22: _t->FacetsChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 23: _t->DashLineChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: _t->setXRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->setYRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 26: _t->setZRotation((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 27: _t->setMultip((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 28: _t->setXMove((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 29: _t->setYMove((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 30: _t->setZMove((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 31: _t->cleanup(); break;
+        case 32: _t->get_main_window_size_changed((*reinterpret_cast< const QSize(*)>(_a[1]))); break;
+        case 33: _t->get_file_name((*reinterpret_cast< char(*)[]>(_a[1]))); break;
+        case 34: _t->setRedColor((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 35: _t->setGreenColor((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 36: _t->setBlueColor((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 37: _t->setRedColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 38: _t->setGreenColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 39: _t->setBlueColorLine((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 40: _t->setRedColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 41: _t->setGreenColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 42: _t->setBlueColorVertex((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 43: _t->setLineWidth((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 44: _t->setVertexSize((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 45: _t->setVertexType((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 46: _t->setPerspectiveStatus((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 47: _t->setFacetsStatus((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 48: _t->setDashLineSignal((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 49: _t->getSaveJpgFile((*reinterpret_cast< char(*)[]>(_a[1]))); break;
+        case 50: _t->getSaveBmpFile((*reinterpret_cast< char(*)[]>(_a[1]))); break;
+        case 51: _t->getSaveGifFileSignal((*reinterpret_cast< char(*)[]>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -481,8 +491,15 @@ void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         }
         {
             using _t = void (GLWidget::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GLWidget::DashLineChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GLWidget::FacetsChanged)) {
                 *result = 22;
+                return;
+            }
+        }
+        {
+            using _t = void (GLWidget::*)(int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&GLWidget::DashLineChanged)) {
+                *result = 23;
                 return;
             }
         }
@@ -520,13 +537,13 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 50)
+        if (_id < 52)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 50;
+        _id -= 52;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 50)
+        if (_id < 52)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 50;
+        _id -= 52;
     }
     return _id;
 }
@@ -686,10 +703,17 @@ void GLWidget::PersectiveChanged(int _t1)
 }
 
 // SIGNAL 22
-void GLWidget::DashLineChanged(int _t1)
+void GLWidget::FacetsChanged(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 22, _a);
+}
+
+// SIGNAL 23
+void GLWidget::DashLineChanged(int _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 23, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

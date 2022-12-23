@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[64];
-    char stringdata0[1403];
+    QByteArrayData data[66];
+    char stringdata0[1442];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -49,52 +49,54 @@ QT_MOC_LITERAL(14, 243, 15), // "send_line_width"
 QT_MOC_LITERAL(15, 259, 16), // "send_vertex_size"
 QT_MOC_LITERAL(16, 276, 16), // "send_vertex_type"
 QT_MOC_LITERAL(17, 293, 20), // "send_perspect_status"
-QT_MOC_LITERAL(18, 314, 21), // "send_dash_line_signal"
-QT_MOC_LITERAL(19, 336, 18), // "send_save_jpg_file"
-QT_MOC_LITERAL(20, 355, 18), // "send_save_bmp_file"
-QT_MOC_LITERAL(21, 374, 18), // "send_save_gif_file"
-QT_MOC_LITERAL(22, 393, 29), // "on_MainWindow_iconSizeChanged"
-QT_MOC_LITERAL(23, 423, 8), // "iconSize"
-QT_MOC_LITERAL(24, 432, 24), // "on_InputObject_2_clicked"
-QT_MOC_LITERAL(25, 457, 19), // "on_PBDraw_2_clicked"
-QT_MOC_LITERAL(26, 477, 26), // "on_SBRedColor_valueChanged"
-QT_MOC_LITERAL(27, 504, 4), // "arg1"
-QT_MOC_LITERAL(28, 509, 28), // "on_SBGreenColor_valueChanged"
-QT_MOC_LITERAL(29, 538, 27), // "on_SBBlueColor_valueChanged"
-QT_MOC_LITERAL(30, 566, 30), // "on_SBRedColorLine_valueChanged"
-QT_MOC_LITERAL(31, 597, 32), // "on_SBGreenColorLine_valueChanged"
-QT_MOC_LITERAL(32, 630, 31), // "on_SBBlueColorLine_valueChanged"
-QT_MOC_LITERAL(33, 662, 32), // "on_SBRedColorVertex_valueChanged"
-QT_MOC_LITERAL(34, 695, 34), // "on_SBGreenColorVertex_valueCh..."
-QT_MOC_LITERAL(35, 730, 33), // "on_SBBlueColorVertex_valueCha..."
-QT_MOC_LITERAL(36, 764, 27), // "on_SBLineWidth_valueChanged"
-QT_MOC_LITERAL(37, 792, 28), // "on_SBVertexSize_valueChanged"
-QT_MOC_LITERAL(38, 821, 34), // "on_CBVertexType_currentTextCh..."
-QT_MOC_LITERAL(39, 856, 24), // "on_CBPerspective_toggled"
-QT_MOC_LITERAL(40, 881, 7), // "checked"
-QT_MOC_LITERAL(41, 889, 21), // "on_CBDashLine_toggled"
-QT_MOC_LITERAL(42, 911, 19), // "on_PBToZero_clicked"
-QT_MOC_LITERAL(43, 931, 21), // "on_PBJpgPhoto_clicked"
-QT_MOC_LITERAL(44, 953, 21), // "on_PBBmpPhoto_clicked"
-QT_MOC_LITERAL(45, 975, 21), // "on_PBGifMovie_clicked"
-QT_MOC_LITERAL(46, 997, 23), // "on_xSlider_valueChanged"
-QT_MOC_LITERAL(47, 1021, 5), // "value"
-QT_MOC_LITERAL(48, 1027, 23), // "on_ySlider_valueChanged"
-QT_MOC_LITERAL(49, 1051, 23), // "on_zSlider_valueChanged"
-QT_MOC_LITERAL(50, 1075, 28), // "on_MultipSlider_valueChanged"
-QT_MOC_LITERAL(51, 1104, 27), // "on_xMoveSlider_valueChanged"
-QT_MOC_LITERAL(52, 1132, 27), // "on_yMoveSlider_valueChanged"
-QT_MOC_LITERAL(53, 1160, 27), // "on_zMoveSlider_valueChanged"
-QT_MOC_LITERAL(54, 1188, 22), // "on_SBxRot_valueChanged"
-QT_MOC_LITERAL(55, 1211, 22), // "on_SByRot_valueChanged"
-QT_MOC_LITERAL(56, 1234, 22), // "on_SBzRot_valueChanged"
-QT_MOC_LITERAL(57, 1257, 25), // "on_DSBMultip_valueChanged"
-QT_MOC_LITERAL(58, 1283, 24), // "on_DSBxMove_valueChanged"
-QT_MOC_LITERAL(59, 1308, 24), // "on_DSByMove_valueChanged"
-QT_MOC_LITERAL(60, 1333, 24), // "on_DSBzMove_valueChanged"
-QT_MOC_LITERAL(61, 1358, 19), // "get_vertexes_amount"
-QT_MOC_LITERAL(62, 1378, 6), // "amount"
-QT_MOC_LITERAL(63, 1385, 17) // "get_facets_amount"
+QT_MOC_LITERAL(18, 314, 18), // "send_facets_status"
+QT_MOC_LITERAL(19, 333, 21), // "send_dash_line_signal"
+QT_MOC_LITERAL(20, 355, 18), // "send_save_jpg_file"
+QT_MOC_LITERAL(21, 374, 18), // "send_save_bmp_file"
+QT_MOC_LITERAL(22, 393, 18), // "send_save_gif_file"
+QT_MOC_LITERAL(23, 412, 29), // "on_MainWindow_iconSizeChanged"
+QT_MOC_LITERAL(24, 442, 8), // "iconSize"
+QT_MOC_LITERAL(25, 451, 24), // "on_InputObject_2_clicked"
+QT_MOC_LITERAL(26, 476, 19), // "on_PBDraw_2_clicked"
+QT_MOC_LITERAL(27, 496, 26), // "on_SBRedColor_valueChanged"
+QT_MOC_LITERAL(28, 523, 4), // "arg1"
+QT_MOC_LITERAL(29, 528, 28), // "on_SBGreenColor_valueChanged"
+QT_MOC_LITERAL(30, 557, 27), // "on_SBBlueColor_valueChanged"
+QT_MOC_LITERAL(31, 585, 30), // "on_SBRedColorLine_valueChanged"
+QT_MOC_LITERAL(32, 616, 32), // "on_SBGreenColorLine_valueChanged"
+QT_MOC_LITERAL(33, 649, 31), // "on_SBBlueColorLine_valueChanged"
+QT_MOC_LITERAL(34, 681, 32), // "on_SBRedColorVertex_valueChanged"
+QT_MOC_LITERAL(35, 714, 34), // "on_SBGreenColorVertex_valueCh..."
+QT_MOC_LITERAL(36, 749, 33), // "on_SBBlueColorVertex_valueCha..."
+QT_MOC_LITERAL(37, 783, 27), // "on_SBLineWidth_valueChanged"
+QT_MOC_LITERAL(38, 811, 28), // "on_SBVertexSize_valueChanged"
+QT_MOC_LITERAL(39, 840, 34), // "on_CBVertexType_currentTextCh..."
+QT_MOC_LITERAL(40, 875, 24), // "on_CBPerspective_toggled"
+QT_MOC_LITERAL(41, 900, 7), // "checked"
+QT_MOC_LITERAL(42, 908, 19), // "on_CBFacets_toggled"
+QT_MOC_LITERAL(43, 928, 21), // "on_CBDashLine_toggled"
+QT_MOC_LITERAL(44, 950, 19), // "on_PBToZero_clicked"
+QT_MOC_LITERAL(45, 970, 21), // "on_PBJpgPhoto_clicked"
+QT_MOC_LITERAL(46, 992, 21), // "on_PBBmpPhoto_clicked"
+QT_MOC_LITERAL(47, 1014, 21), // "on_PBGifMovie_clicked"
+QT_MOC_LITERAL(48, 1036, 23), // "on_xSlider_valueChanged"
+QT_MOC_LITERAL(49, 1060, 5), // "value"
+QT_MOC_LITERAL(50, 1066, 23), // "on_ySlider_valueChanged"
+QT_MOC_LITERAL(51, 1090, 23), // "on_zSlider_valueChanged"
+QT_MOC_LITERAL(52, 1114, 28), // "on_MultipSlider_valueChanged"
+QT_MOC_LITERAL(53, 1143, 27), // "on_xMoveSlider_valueChanged"
+QT_MOC_LITERAL(54, 1171, 27), // "on_yMoveSlider_valueChanged"
+QT_MOC_LITERAL(55, 1199, 27), // "on_zMoveSlider_valueChanged"
+QT_MOC_LITERAL(56, 1227, 22), // "on_SBxRot_valueChanged"
+QT_MOC_LITERAL(57, 1250, 22), // "on_SByRot_valueChanged"
+QT_MOC_LITERAL(58, 1273, 22), // "on_SBzRot_valueChanged"
+QT_MOC_LITERAL(59, 1296, 25), // "on_DSBMultip_valueChanged"
+QT_MOC_LITERAL(60, 1322, 24), // "on_DSBxMove_valueChanged"
+QT_MOC_LITERAL(61, 1347, 24), // "on_DSByMove_valueChanged"
+QT_MOC_LITERAL(62, 1372, 24), // "on_DSBzMove_valueChanged"
+QT_MOC_LITERAL(63, 1397, 19), // "get_vertexes_amount"
+QT_MOC_LITERAL(64, 1417, 6), // "amount"
+QT_MOC_LITERAL(65, 1424, 17) // "get_facets_amount"
 
     },
     "MainWindow\0send_main_window_size_changed\0"
@@ -105,12 +107,12 @@ QT_MOC_LITERAL(63, 1385, 17) // "get_facets_amount"
     "send_green_color_vertex\0send_blue_color_vertex\0"
     "send_line_width\0send_vertex_size\0"
     "send_vertex_type\0send_perspect_status\0"
-    "send_dash_line_signal\0send_save_jpg_file\0"
-    "send_save_bmp_file\0send_save_gif_file\0"
-    "on_MainWindow_iconSizeChanged\0iconSize\0"
-    "on_InputObject_2_clicked\0on_PBDraw_2_clicked\0"
-    "on_SBRedColor_valueChanged\0arg1\0"
-    "on_SBGreenColor_valueChanged\0"
+    "send_facets_status\0send_dash_line_signal\0"
+    "send_save_jpg_file\0send_save_bmp_file\0"
+    "send_save_gif_file\0on_MainWindow_iconSizeChanged\0"
+    "iconSize\0on_InputObject_2_clicked\0"
+    "on_PBDraw_2_clicked\0on_SBRedColor_valueChanged\0"
+    "arg1\0on_SBGreenColor_valueChanged\0"
     "on_SBBlueColor_valueChanged\0"
     "on_SBRedColorLine_valueChanged\0"
     "on_SBGreenColorLine_valueChanged\0"
@@ -122,11 +124,11 @@ QT_MOC_LITERAL(63, 1385, 17) // "get_facets_amount"
     "on_SBVertexSize_valueChanged\0"
     "on_CBVertexType_currentTextChanged\0"
     "on_CBPerspective_toggled\0checked\0"
-    "on_CBDashLine_toggled\0on_PBToZero_clicked\0"
-    "on_PBJpgPhoto_clicked\0on_PBBmpPhoto_clicked\0"
-    "on_PBGifMovie_clicked\0on_xSlider_valueChanged\0"
-    "value\0on_ySlider_valueChanged\0"
-    "on_zSlider_valueChanged\0"
+    "on_CBFacets_toggled\0on_CBDashLine_toggled\0"
+    "on_PBToZero_clicked\0on_PBJpgPhoto_clicked\0"
+    "on_PBBmpPhoto_clicked\0on_PBGifMovie_clicked\0"
+    "on_xSlider_valueChanged\0value\0"
+    "on_ySlider_valueChanged\0on_zSlider_valueChanged\0"
     "on_MultipSlider_valueChanged\0"
     "on_xMoveSlider_valueChanged\0"
     "on_yMoveSlider_valueChanged\0"
@@ -146,76 +148,79 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      56,   14, // methods
+      58,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      19,       // signalCount
+      20,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  294,    2, 0x06 /* Public */,
-       3,    1,  297,    2, 0x06 /* Public */,
-       5,    1,  300,    2, 0x06 /* Public */,
-       6,    1,  303,    2, 0x06 /* Public */,
-       7,    1,  306,    2, 0x06 /* Public */,
-       8,    1,  309,    2, 0x06 /* Public */,
-       9,    1,  312,    2, 0x06 /* Public */,
-      10,    1,  315,    2, 0x06 /* Public */,
-      11,    1,  318,    2, 0x06 /* Public */,
-      12,    1,  321,    2, 0x06 /* Public */,
-      13,    1,  324,    2, 0x06 /* Public */,
-      14,    1,  327,    2, 0x06 /* Public */,
-      15,    1,  330,    2, 0x06 /* Public */,
-      16,    1,  333,    2, 0x06 /* Public */,
-      17,    1,  336,    2, 0x06 /* Public */,
-      18,    1,  339,    2, 0x06 /* Public */,
-      19,    1,  342,    2, 0x06 /* Public */,
-      20,    1,  345,    2, 0x06 /* Public */,
-      21,    1,  348,    2, 0x06 /* Public */,
+       1,    1,  304,    2, 0x06 /* Public */,
+       3,    1,  307,    2, 0x06 /* Public */,
+       5,    1,  310,    2, 0x06 /* Public */,
+       6,    1,  313,    2, 0x06 /* Public */,
+       7,    1,  316,    2, 0x06 /* Public */,
+       8,    1,  319,    2, 0x06 /* Public */,
+       9,    1,  322,    2, 0x06 /* Public */,
+      10,    1,  325,    2, 0x06 /* Public */,
+      11,    1,  328,    2, 0x06 /* Public */,
+      12,    1,  331,    2, 0x06 /* Public */,
+      13,    1,  334,    2, 0x06 /* Public */,
+      14,    1,  337,    2, 0x06 /* Public */,
+      15,    1,  340,    2, 0x06 /* Public */,
+      16,    1,  343,    2, 0x06 /* Public */,
+      17,    1,  346,    2, 0x06 /* Public */,
+      18,    1,  349,    2, 0x06 /* Public */,
+      19,    1,  352,    2, 0x06 /* Public */,
+      20,    1,  355,    2, 0x06 /* Public */,
+      21,    1,  358,    2, 0x06 /* Public */,
+      22,    1,  361,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      22,    1,  351,    2, 0x08 /* Private */,
-      24,    0,  354,    2, 0x08 /* Private */,
-      25,    0,  355,    2, 0x08 /* Private */,
-      26,    1,  356,    2, 0x08 /* Private */,
-      28,    1,  359,    2, 0x08 /* Private */,
-      29,    1,  362,    2, 0x08 /* Private */,
-      30,    1,  365,    2, 0x08 /* Private */,
-      31,    1,  368,    2, 0x08 /* Private */,
-      32,    1,  371,    2, 0x08 /* Private */,
-      33,    1,  374,    2, 0x08 /* Private */,
-      34,    1,  377,    2, 0x08 /* Private */,
-      35,    1,  380,    2, 0x08 /* Private */,
-      36,    1,  383,    2, 0x08 /* Private */,
-      37,    1,  386,    2, 0x08 /* Private */,
-      38,    1,  389,    2, 0x08 /* Private */,
-      39,    1,  392,    2, 0x08 /* Private */,
-      41,    1,  395,    2, 0x08 /* Private */,
-      42,    0,  398,    2, 0x08 /* Private */,
-      43,    0,  399,    2, 0x08 /* Private */,
-      44,    0,  400,    2, 0x08 /* Private */,
-      45,    0,  401,    2, 0x08 /* Private */,
-      46,    1,  402,    2, 0x08 /* Private */,
-      48,    1,  405,    2, 0x08 /* Private */,
-      49,    1,  408,    2, 0x08 /* Private */,
-      50,    1,  411,    2, 0x08 /* Private */,
-      51,    1,  414,    2, 0x08 /* Private */,
-      52,    1,  417,    2, 0x08 /* Private */,
-      53,    1,  420,    2, 0x08 /* Private */,
-      54,    1,  423,    2, 0x08 /* Private */,
-      55,    1,  426,    2, 0x08 /* Private */,
-      56,    1,  429,    2, 0x08 /* Private */,
-      57,    1,  432,    2, 0x08 /* Private */,
-      58,    1,  435,    2, 0x08 /* Private */,
-      59,    1,  438,    2, 0x08 /* Private */,
-      60,    1,  441,    2, 0x08 /* Private */,
-      61,    1,  444,    2, 0x0a /* Public */,
-      63,    1,  447,    2, 0x0a /* Public */,
+      23,    1,  364,    2, 0x08 /* Private */,
+      25,    0,  367,    2, 0x08 /* Private */,
+      26,    0,  368,    2, 0x08 /* Private */,
+      27,    1,  369,    2, 0x08 /* Private */,
+      29,    1,  372,    2, 0x08 /* Private */,
+      30,    1,  375,    2, 0x08 /* Private */,
+      31,    1,  378,    2, 0x08 /* Private */,
+      32,    1,  381,    2, 0x08 /* Private */,
+      33,    1,  384,    2, 0x08 /* Private */,
+      34,    1,  387,    2, 0x08 /* Private */,
+      35,    1,  390,    2, 0x08 /* Private */,
+      36,    1,  393,    2, 0x08 /* Private */,
+      37,    1,  396,    2, 0x08 /* Private */,
+      38,    1,  399,    2, 0x08 /* Private */,
+      39,    1,  402,    2, 0x08 /* Private */,
+      40,    1,  405,    2, 0x08 /* Private */,
+      42,    1,  408,    2, 0x08 /* Private */,
+      43,    1,  411,    2, 0x08 /* Private */,
+      44,    0,  414,    2, 0x08 /* Private */,
+      45,    0,  415,    2, 0x08 /* Private */,
+      46,    0,  416,    2, 0x08 /* Private */,
+      47,    0,  417,    2, 0x08 /* Private */,
+      48,    1,  418,    2, 0x08 /* Private */,
+      50,    1,  421,    2, 0x08 /* Private */,
+      51,    1,  424,    2, 0x08 /* Private */,
+      52,    1,  427,    2, 0x08 /* Private */,
+      53,    1,  430,    2, 0x08 /* Private */,
+      54,    1,  433,    2, 0x08 /* Private */,
+      55,    1,  436,    2, 0x08 /* Private */,
+      56,    1,  439,    2, 0x08 /* Private */,
+      57,    1,  442,    2, 0x08 /* Private */,
+      58,    1,  445,    2, 0x08 /* Private */,
+      59,    1,  448,    2, 0x08 /* Private */,
+      60,    1,  451,    2, 0x08 /* Private */,
+      61,    1,  454,    2, 0x08 /* Private */,
+      62,    1,  457,    2, 0x08 /* Private */,
+      63,    1,  460,    2, 0x0a /* Public */,
+      65,    1,  463,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QSize,    2,
     QMetaType::Void, 0x80000000 | 4,    2,
+    QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void, QMetaType::Int,    2,
@@ -235,43 +240,44 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, 0x80000000 | 4,    2,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QSize,   23,
+    QMetaType::Void, QMetaType::QSize,   24,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::QString,   27,
-    QMetaType::Void, QMetaType::Bool,   40,
-    QMetaType::Void, QMetaType::Bool,   40,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::QString,   28,
+    QMetaType::Void, QMetaType::Bool,   41,
+    QMetaType::Void, QMetaType::Bool,   41,
+    QMetaType::Void, QMetaType::Bool,   41,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   47,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Int,   27,
-    QMetaType::Void, QMetaType::Double,   27,
-    QMetaType::Void, QMetaType::Double,   27,
-    QMetaType::Void, QMetaType::Double,   27,
-    QMetaType::Void, QMetaType::Double,   27,
-    QMetaType::Void, QMetaType::Int,   62,
-    QMetaType::Void, QMetaType::Int,   62,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   49,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Int,   28,
+    QMetaType::Void, QMetaType::Double,   28,
+    QMetaType::Void, QMetaType::Double,   28,
+    QMetaType::Void, QMetaType::Double,   28,
+    QMetaType::Void, QMetaType::Double,   28,
+    QMetaType::Void, QMetaType::Int,   64,
+    QMetaType::Void, QMetaType::Int,   64,
 
        0        // eod
 };
@@ -297,47 +303,49 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->send_vertex_size((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 13: _t->send_vertex_type((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 14: _t->send_perspect_status((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 15: _t->send_dash_line_signal((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 16: _t->send_save_jpg_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
-        case 17: _t->send_save_bmp_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
-        case 18: _t->send_save_gif_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
-        case 19: _t->on_MainWindow_iconSizeChanged((*reinterpret_cast< const QSize(*)>(_a[1]))); break;
-        case 20: _t->on_InputObject_2_clicked(); break;
-        case 21: _t->on_PBDraw_2_clicked(); break;
-        case 22: _t->on_SBRedColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 23: _t->on_SBGreenColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 24: _t->on_SBBlueColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 25: _t->on_SBRedColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 26: _t->on_SBGreenColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 27: _t->on_SBBlueColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 28: _t->on_SBRedColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 29: _t->on_SBGreenColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 30: _t->on_SBBlueColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 31: _t->on_SBLineWidth_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 32: _t->on_SBVertexSize_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 33: _t->on_CBVertexType_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 34: _t->on_CBPerspective_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 35: _t->on_CBDashLine_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 36: _t->on_PBToZero_clicked(); break;
-        case 37: _t->on_PBJpgPhoto_clicked(); break;
-        case 38: _t->on_PBBmpPhoto_clicked(); break;
-        case 39: _t->on_PBGifMovie_clicked(); break;
-        case 40: _t->on_xSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 41: _t->on_ySlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 42: _t->on_zSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 43: _t->on_MultipSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 44: _t->on_xMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 45: _t->on_yMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 46: _t->on_zMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 47: _t->on_SBxRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 48: _t->on_SByRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 49: _t->on_SBzRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 50: _t->on_DSBMultip_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 51: _t->on_DSBxMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 52: _t->on_DSByMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 53: _t->on_DSBzMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 54: _t->get_vertexes_amount((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 55: _t->get_facets_amount((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 15: _t->send_facets_status((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 16: _t->send_dash_line_signal((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 17: _t->send_save_jpg_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
+        case 18: _t->send_save_bmp_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
+        case 19: _t->send_save_gif_file((*reinterpret_cast< char*(*)>(_a[1]))); break;
+        case 20: _t->on_MainWindow_iconSizeChanged((*reinterpret_cast< const QSize(*)>(_a[1]))); break;
+        case 21: _t->on_InputObject_2_clicked(); break;
+        case 22: _t->on_PBDraw_2_clicked(); break;
+        case 23: _t->on_SBRedColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 24: _t->on_SBGreenColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 25: _t->on_SBBlueColor_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 26: _t->on_SBRedColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 27: _t->on_SBGreenColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 28: _t->on_SBBlueColorLine_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 29: _t->on_SBRedColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 30: _t->on_SBGreenColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 31: _t->on_SBBlueColorVertex_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 32: _t->on_SBLineWidth_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 33: _t->on_SBVertexSize_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 34: _t->on_CBVertexType_currentTextChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 35: _t->on_CBPerspective_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 36: _t->on_CBFacets_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 37: _t->on_CBDashLine_toggled((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 38: _t->on_PBToZero_clicked(); break;
+        case 39: _t->on_PBJpgPhoto_clicked(); break;
+        case 40: _t->on_PBBmpPhoto_clicked(); break;
+        case 41: _t->on_PBGifMovie_clicked(); break;
+        case 42: _t->on_xSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 43: _t->on_ySlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 44: _t->on_zSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 45: _t->on_MultipSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 46: _t->on_xMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 47: _t->on_yMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 48: _t->on_zMoveSlider_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 49: _t->on_SBxRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 50: _t->on_SByRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 51: _t->on_SBzRot_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 52: _t->on_DSBMultip_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 53: _t->on_DSBxMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 54: _t->on_DSByMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 55: _t->on_DSBzMove_valueChanged((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 56: _t->get_vertexes_amount((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 57: _t->get_facets_amount((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -449,29 +457,36 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         }
         {
             using _t = void (MainWindow::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_dash_line_signal)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_facets_status)) {
                 *result = 15;
                 return;
             }
         }
         {
-            using _t = void (MainWindow::*)(char * );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_jpg_file)) {
+            using _t = void (MainWindow::*)(int );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_dash_line_signal)) {
                 *result = 16;
                 return;
             }
         }
         {
             using _t = void (MainWindow::*)(char * );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_bmp_file)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_jpg_file)) {
                 *result = 17;
                 return;
             }
         }
         {
             using _t = void (MainWindow::*)(char * );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_gif_file)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_bmp_file)) {
                 *result = 18;
+                return;
+            }
+        }
+        {
+            using _t = void (MainWindow::*)(char * );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MainWindow::send_save_gif_file)) {
+                *result = 19;
                 return;
             }
         }
@@ -507,13 +522,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 56)
+        if (_id < 58)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 56;
+        _id -= 58;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 56)
+        if (_id < 58)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 56;
+        _id -= 58;
     }
     return _id;
 }
@@ -624,31 +639,38 @@ void MainWindow::send_perspect_status(int _t1)
 }
 
 // SIGNAL 15
-void MainWindow::send_dash_line_signal(int _t1)
+void MainWindow::send_facets_status(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 15, _a);
 }
 
 // SIGNAL 16
-void MainWindow::send_save_jpg_file(char * _t1)
+void MainWindow::send_dash_line_signal(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 16, _a);
 }
 
 // SIGNAL 17
-void MainWindow::send_save_bmp_file(char * _t1)
+void MainWindow::send_save_jpg_file(char * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 17, _a);
 }
 
 // SIGNAL 18
-void MainWindow::send_save_gif_file(char * _t1)
+void MainWindow::send_save_bmp_file(char * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 18, _a);
+}
+
+// SIGNAL 19
+void MainWindow::send_save_gif_file(char * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 19, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

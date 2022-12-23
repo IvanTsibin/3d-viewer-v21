@@ -114,6 +114,17 @@ void MainWindow::on_CBPerspective_toggled(bool checked)
     }
 }
 
+void MainWindow::on_CBFacets_toggled(bool checked)
+{
+    if (checked) {
+        emit send_facets_status(1);
+//        std::cout << "Perspective is checked" << std::endl;
+    } else {
+        emit send_facets_status(0);
+//        std::cout << "Perspective is NOT checked" << std::endl;
+    }
+}
+
 void MainWindow::on_CBDashLine_toggled(bool checked)
 {
     if (checked) {
@@ -129,7 +140,7 @@ void MainWindow::read_start_pos() {
     float Multip = 0.0, RedC = 0.2, GreenC = 0.2, BlueC = 0.2;
     float RedCL = 0.8, GreenCL = 0.5, BlueCL = 0.2, RedCV = 0.5, GreenCV = 0.8, BlueCV = 0.2;
     int xRot = 0, yRot = 0, zRot = 0, xMove = 0, yMove = 0, zMove = 0, error = 0;
-    int LineWidth = 1, VertexSize = 5, VertexType = 0, perspect = 1, lineType = 0;
+    int LineWidth = 1, VertexSize = 5, VertexType = 0, perspect = 1, lineType = 0, facets = 1;
 
     if ((start_pos = fopen("start_pos-v2.pos", "r")) == NULL) {
         start_pos = fopen("start_pos-v2.pos", "w");
@@ -145,7 +156,7 @@ void MainWindow::read_start_pos() {
         error += fscanf(start_pos, "%s%s%s%s", Multip_str, RedC_str, GreenC_str, BlueC_str);
         error += fscanf(start_pos, "%s%s%s%s%s%s", RedCL_str, GreenCL_str, BlueCL_str, RedCV_str, GreenCV_str, BlueCV_str);
         error += fscanf(start_pos, "%d%d%d%d%d%d", &xRot, &yRot, &zRot, &xMove, &yMove, &zMove);
-        error += fscanf(start_pos, "%d%d%d%d%d", &LineWidth, &VertexSize, &VertexType, &perspect, &lineType);
+        error += fscanf(start_pos, "%d%d%d%d%d%d", &LineWidth, &VertexSize, &VertexType, &perspect, &lineType, &facets);
 
         Multip = convert_str_to_double(Multip_str, strlen(Multip_str));
         RedC = convert_str_to_double(RedC_str, strlen(RedC_str));
@@ -191,6 +202,12 @@ void MainWindow::read_start_pos() {
         ui->CBDashLine->setChecked(false);
     }
     ui->CBDashLine->repaint();
+    if (facets == 1) {
+        ui->CBFacets->setChecked(true);
+    } else {
+        ui->CBFacets->setChecked(false);
+    }
+    ui->CBFacets->repaint();
 //    std::cout << "error = " << error << std::endl;
 }
 

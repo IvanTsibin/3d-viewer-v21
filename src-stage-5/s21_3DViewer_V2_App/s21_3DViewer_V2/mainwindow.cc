@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, &MainWindow::send_vertex_size, MyGLWidget, &GLWidget::setVertexSize);
     connect(this, &MainWindow::send_vertex_type, MyGLWidget, &GLWidget::setVertexType);
     connect(this, &MainWindow::send_perspect_status, MyGLWidget, &GLWidget::setPerspectiveStatus);
+    connect(this, &MainWindow::send_facets_status, MyGLWidget, &GLWidget::setFacetsStatus);
+
     connect(this, &MainWindow::send_dash_line_signal, MyGLWidget, &GLWidget::setDashLineSignal);
 
     connect(this, &MainWindow::send_save_jpg_file, MyGLWidget, &GLWidget::getSaveJpgFile);

@@ -99,6 +99,7 @@ public slots:
     void setVertexSize(int VertexSize);
     void setVertexType(int VertexType);
     void setPerspectiveStatus(int PerspectiveStatus);
+    void setFacetsStatus(int FacetsStatus);
     void setDashLineSignal(int signal);
     void getSaveJpgFile(char str[]);
     void getSaveBmpFile(char str[]);
@@ -127,6 +128,7 @@ signals:
     void VertexSizeChanged(int VertexSize);
     void VertexTypeChanged(int VertexType);
     void PersectiveChanged(int PerspectiveStatus);
+    void FacetsChanged(int FacetsStatus);
     void DashLineChanged(int DashLine);
 
 protected:
@@ -162,6 +164,7 @@ private:
     int m_VertexSize;
     int m_VertexType;
     int m_perspect;
+    int m_facets;
     int m_lineType;
     GLfloat m_aspect;
     QPoint m_lastPos;

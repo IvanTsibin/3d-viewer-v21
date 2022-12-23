@@ -437,6 +437,16 @@
                  </widget>
                 </item>
                 <item>
+                 <widget class="QCheckBox" name="CBFacets">
+                  <property name="text">
+                   <string>Facets</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <widget class="QPushButton" name="PBToZero">
                   <property name="font">
                    <font>

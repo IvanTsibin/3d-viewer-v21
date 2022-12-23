@@ -80,7 +80,6 @@ void Model::loadTriangles(figure_t *figure) {
     QVector3D normal;
     double x1, y1, z1, x2, y2, z2;
     for (int i = 0; i < figure->triangles_number; i++) {
-//    for (int i = 0; i < 2; i++) {
         x1 = figure->dots[figure->triangles[i][2]][0] - figure->dots[figure->triangles[i][0]][0];
         y1 = figure->dots[figure->triangles[i][2]][1] - figure->dots[figure->triangles[i][0]][1];
         z1 = figure->dots[figure->triangles[i][2]][2] - figure->dots[figure->triangles[i][0]][2];
@@ -104,10 +103,10 @@ void Model::loadTriangles(figure_t *figure) {
             m_triangles_count += 6;
         }
     }
-    for (int i = 0; i < m_triangles_count; i++) {
-        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
-    }
-    std::cout << "LoadTriangles m_triangles_count = " << m_triangles_count << std::endl;
+//    for (int i = 0; i < m_triangles_count; i++) {
+//        std::cout << "m_triangles_data[" << i << "] = " << m_triangles_data[i] << std::endl;
+//    }
+//    std::cout << "LoadTriangles m_triangles_count = " << m_triangles_count << std::endl;
 }
 
 void Model::modelMove(GLfloat xMove, GLfloat yMove, GLfloat zMove) {

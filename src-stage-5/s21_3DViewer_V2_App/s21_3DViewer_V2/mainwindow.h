@@ -37,6 +37,7 @@ private slots:
     void on_SBVertexSize_valueChanged(int arg1);
     void on_CBVertexType_currentTextChanged(const QString &arg1);
     void on_CBPerspective_toggled(bool checked);
+    void on_CBFacets_toggled(bool checked);
     void on_CBDashLine_toggled(bool checked);
 
     void on_PBToZero_clicked();
@@ -101,6 +102,7 @@ signals:
     void send_vertex_size(int);
     void send_vertex_type(int);
     void send_perspect_status(int);
+    void send_facets_status(int);
     void send_dash_line_signal(int);
     void send_save_jpg_file(char*);
     void send_save_bmp_file(char*);

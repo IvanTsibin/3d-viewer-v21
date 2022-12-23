@@ -221,7 +221,15 @@ void GLWidget::setVertexType(int VertexType) {
 void GLWidget::setPerspectiveStatus(int PerspectiveStatus) {
     m_perspect = PerspectiveStatus;
 //    std::cout << "in get_perspect_status m_perspective = " << m_perspect << std::endl;
-    emit PersectiveChanged(PerspectiveStatus);
+    emit PersectiveChanged(m_perspect);
+    if (gifCounter > 0) getSaveGifFile(gifFileName);
+    update();
+}
+
+void GLWidget::setFacetsStatus(int FacetsStatus) {
+    m_facets = FacetsStatus;
+//    std::cout << "in get_facets_status m_perspective = " << m_facets << std::endl;
+    emit FacetsChanged(m_facets);
     if (gifCounter > 0) getSaveGifFile(gifFileName);
     update();
 }
@@ -279,7 +287,7 @@ void GLWidget::save_start_pos() {
     fprintf(start_pos, "%.2lf %.2lf %.2lf %.2lf ", m_Multip - 1, m_RedColor, m_GreenColor, m_BlueColor);
     fprintf(start_pos, "%.2lf %.2lf %.2lf %.2lf %.2lf %.2lf ", m_RedColorLine, m_GreenColorLine, m_BlueColorLine, m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex);
     fprintf(start_pos, "%d %d %d %d %d %d ", m_xRot, m_yRot, m_zRot, m_xMove, m_yMove, m_zMove);
-    fprintf(start_pos, "%d %d %d %d %d ", m_LineWidth,m_VertexSize, m_VertexType, m_perspect, m_lineType);
+    fprintf(start_pos, "%d %d %d %d %d %d ", m_LineWidth,m_VertexSize, m_VertexType, m_perspect, m_lineType, m_facets);
     fclose(start_pos);
 }
 
