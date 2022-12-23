@@ -171,15 +171,19 @@ static const char *fragmentShaderSource =
     "uniform highp vec3 lightPos;\n"
     "varying float forColor;\n"
     "uniform vec3 ColorLine;\n"
+    "uniform int colorFlag;\n"
     "void main() {\n"       
     "   highp vec3 L = normalize(lightPos - vert);\n"
     "   highp float NL = max(dot(normalize(vertNormal), L), 0.0);\n"
 //    "   highp vec3 color = vec3(0.39, 1.0, 0.0);\n"
-//    "  //  highp vec3 color = ColorLine * forColor;\n"
-    "   highp vec3 color = ColorLine;\n"
+    "    highp vec3 color = ColorLine * forColor;\n"
+//    "  // highp vec3 color = ColorLine;\n"
     "   highp vec3 col = clamp(color * 0.2 + color * 0.8 * NL, 0.0, 1.0);\n"
-    "   gl_FragColor = vec4(col, 1.0);\n"
-    "  // gl_FragColor = vec4(color, 1.0);\n"
+    "   if (colorFlag == 1) {"
+    "       gl_FragColor = vec4(col, 1.0);\n"
+        "} else {\n"
+    "       gl_FragColor = vec4(color, 1.0);\n"
+        "}\n"
     "}\n";
 
 void GLWidget::initializeGL()
@@ -213,6 +217,7 @@ void GLWidget::initializeGL()
 
     m_normalMatrixLoc = m_program->uniformLocation("normalMatrix");
     m_lightPosLoc = m_program->uniformLocation("lightPos");
+    m_colorFlag = m_program->uniformLocation("colorFlag");
 
 
     // Create a vertex array object. In OpenGL ES 2.0 and OpenGL 2.x
@@ -293,10 +298,12 @@ void GLWidget::paintGL()
 
     m_program->setUniformValue(m_PointSize, (GLfloat)m_VertexSize);
     m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorLine, m_GreenColorLine, m_BlueColorLine));
+    m_program->setUniformValue(m_colorFlag, 0);
     glDrawArrays(GL_LINES, 0, m_model.linesAmount());
     if (m_VertexType == 1 || m_VertexType == 2) {
         m_program->setUniformValue(m_colorChange, QVector3D(m_RedColorVertex, m_GreenColorVertex, m_BlueColorVertex));
         glDrawArrays(GL_POINTS, m_model.linesAmount(), m_model.dotsAmount());
+        m_program->setUniformValue(m_colorFlag, 1);
         glDrawArrays(GL_TRIANGLES, m_model.linesAmount() + m_model.dotsAmount(), m_model.trianglesAmount());
     }
     m_program->release();

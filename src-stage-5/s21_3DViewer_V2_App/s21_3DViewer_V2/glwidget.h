@@ -175,6 +175,7 @@ private:
     int m_lightPosLoc;
     int m_colorChange;
     int m_PointSize;
+    int m_colorFlag;
     QMatrix4x4 m_camera;
     afines unary_matrix;
     afines project_matrix;

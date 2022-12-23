@@ -93,14 +93,14 @@ void Model::loadTriangles(figure_t *figure) {
             *k++ = figure->dots[figure->triangles[i][j]][0];
             *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
             *k++ = figure->dots[figure->triangles[i][j]][2];
-            *k++ = normal.x(); *k++ = normal.y(); *k++ = normal.z();
+            *k++ = normal.x(); *k++ = - normal.y(); *k++ = normal.z();
             m_triangles_count += 6;
         }
         for (int j = 0; j < 3; j++) {
             *k++ = figure->dots[figure->triangles[i][j]][0];
             *k++ = (-1) * figure->dots[figure->triangles[i][j]][1];
             *k++ = figure->dots[figure->triangles[i][j]][2];
-            *k++ = - normal.x(); *k++ = - normal.y(); *k++ = - normal.z();
+            *k++ = - normal.x(); *k++ = normal.y(); *k++ = - normal.z();
             m_triangles_count += 6;
         }
     }
