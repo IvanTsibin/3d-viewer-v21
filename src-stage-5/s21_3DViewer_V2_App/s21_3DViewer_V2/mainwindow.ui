@@ -438,6 +438,11 @@
                 </item>
                 <item>
                  <widget class="QCheckBox" name="CBFacets">
+                  <property name="font">
+                   <font>
+                    <pointsize>8</pointsize>
+                   </font>
+                  </property>
                   <property name="text">
                    <string>Facets</string>
                   </property>
