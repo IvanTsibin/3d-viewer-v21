@@ -127,13 +127,17 @@ void GLWidget::get_file_name(char *str) {
         m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
         std::cout << "get_file_name Step - 3" << std::endl;
         m_modelVbo.write(m_model.count() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
+//        GLfloat *p = (float*) m_model.constDotData();
+//        for (int i = 0; i < m_model.dotsCount(); i++) {
+//            std::cout << "m_model.constDotData(" << i << ") = " << *p++ << std::endl;
+//        }
         std::cout << "get_file_name Step - 4" << std::endl;
         m_modelVbo.write((m_model.count() +m_model.dotsCount())* sizeof(GLfloat), m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
         std::cout << "get_file_name Step - 5" << std::endl;
-        GLfloat *p = (float*) m_model.constTriangleData();
-        for (int i = 0; i < m_model.trianglesCount(); i++) {
-            std::cout << "m_model.constTriangleData(" << i << ") = " << *p++ << std::endl;
-        }
+//        GLfloat *k = (float*) m_model.constTriangleData();
+//        for (int i = 0; i < m_model.trianglesCount(); i++) {
+//            std::cout << "m_model.constTriangleData(" << i << ") = " << *k++ << std::endl;
+//        }
     }
     update();
 //    std::cout << "get_file_name Step - 6" << std::endl;

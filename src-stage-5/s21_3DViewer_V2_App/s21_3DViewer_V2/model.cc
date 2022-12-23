@@ -26,17 +26,17 @@ void Model::loadFigure(figure_t *figure) {
     vertexs_amount = figure->dots_number;
     facets_amount = figure->triangles_number;
     triangles_amount = figure->triangles_number;
-    std::cout << "LoadFigure Step - 2 - 1" << std::endl;
-    print_figure(figure);
+//    std::cout << "LoadFigure Step - 2 - 1" << std::endl;
+//    print_figure(figure);
     convert_poligons_to_triangles(figure);
-    std::cout << "LoadFigure Step - 2 - 2" << std::endl;
-    print_figure(figure);
+//    std::cout << "LoadFigure Step - 2 - 2" << std::endl;
+//    print_figure(figure);
     resize_and_move_figure(figure);
-    std::cout << "LoadFigure Step - 3" << std::endl;
+//    std::cout << "LoadFigure Step - 3" << std::endl;
     loadDots(figure);
     loadLines(figure);
     loadTriangles(figure);
-    std::cout << "LoadFigure Step - 4" << std::endl;
+//    std::cout << "LoadFigure Step - 4" << std::endl;
 }
 
 void Model::loadDots(figure_t *figure) {
@@ -53,7 +53,7 @@ void Model::loadDots(figure_t *figure) {
 //    for (int i = 0; i < m_dots_count; i++) {
 //        std::cout << "m_dot_data[" << i << "] = " << m_dot_data[i] << std::endl;
 //    }
-    std::cout << "LoadDots Step m_dots_count = " << m_dots_count << std::endl;
+//    std::cout << "LoadDots Step m_dots_count = " << m_dots_count << std::endl;
 }
 void Model::loadLines(figure_t *figure) {
     m_count = 0;
@@ -71,7 +71,7 @@ void Model::loadLines(figure_t *figure) {
 //    for (int i = 0; i < m_count; i++) {
 //        std::cout << "m_data[" << i << "] = " << m_data[i] << std::endl;
 //    }
-    std::cout << "LoadLines m_count = " << m_count << std::endl;
+//    std::cout << "LoadLines m_count = " << m_count << std::endl;
 }
 void Model::loadTriangles(figure_t *figure) {
     m_triangles_count = 0;
@@ -243,9 +243,9 @@ void Model::remove_figure(figure_t *figure) {
 
 void Model::print_figure(figure_t *figure) {
     for (int i = 0; i < figure->dots_number; i++) {
-        printf("figure->dots[%2d][0] = %+4.0f", i, figure->dots[i][0]);
-        printf("  figure->dots[%2d][1] = %+4.0f", i, figure->dots[i][1]);
-        printf("  figure->dots[%2d][2] = %+4.0f\n", i, figure->dots[i][2]);
+        printf("figure->dots[%2d][0] = %+4.2f", i, figure->dots[i][0]);
+        printf("  figure->dots[%2d][1] = %+4.2f", i, figure->dots[i][1]);
+        printf("  figure->dots[%2d][2] = %+4.2f\n", i, figure->dots[i][2]);
     }
 
     for (int i = 0; i < figure->triangles_number; i++) {

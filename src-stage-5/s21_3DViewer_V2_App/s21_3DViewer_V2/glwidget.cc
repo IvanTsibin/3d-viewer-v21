@@ -238,8 +238,13 @@ void GLWidget::initializeGL()
 //    }
     m_modelVbo.allocate((m_model.count() + m_model.dotsCount() + m_model.trianglesCount())* sizeof(GLfloat));
     m_modelVbo.write(0, m_model.constData(), m_model.count() * sizeof(GLfloat));
-    m_modelVbo.write(m_model.trianglesCount() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
+    m_modelVbo.write(m_model.count() * sizeof(GLfloat), m_model.constDotData(), m_model.dotsCount() * sizeof(GLfloat));
     m_modelVbo.write((m_model.count() + m_model.dotsCount()) * sizeof(GLfloat), m_model.constTriangleData(), m_model.trianglesCount() * sizeof(GLfloat));
+
+//    GLfloat *p = (float*) m_model.constDotData();
+//    for (int i = 0; i < m_model.dotsCount(); i++) {
+//        std::cout << "m_model.constDotData(" << i << ") = " << *p++ << std::endl;
+//    }
 
     // Store the vertex attribute bindings for the program.
     setupVertexAttribs();
@@ -250,7 +255,6 @@ void GLWidget::initializeGL()
 
     // Light position is fixed.
     m_program->setUniformValue(m_lightPosLoc, QVector3D(0, 0, 5));
-
     m_program->release();
 
 }
@@ -321,14 +325,14 @@ void GLWidget::checkForSpecs() {
 
     if (m_lineType == 1) {
             glEnable(GL_LINE_STIPPLE);
-#ifdef __linux__ || __APPLE__
+#ifdef __linux__
             glLineStipple(4, 0x00FF);
 #endif
     } else {
             glDisable(GL_LINE_STIPPLE);
     }
     if (m_VertexType == 1) {
-#ifdef __linux__ || __APPLE__
+#ifdef __linux__
         glPointSize((GLfloat)m_VertexSize);
 #endif
         glEnable(GL_POINT_SMOOTH);
