@@ -30,10 +30,8 @@ void GLWidget::GetFileName(char *str) {
     m_model_.ReLoadData(str);
     emit SendFacetsAmount(m_model_.FacetsAmount());
     emit SendVertexesAmount(m_model_.VertexsAmount());
-    m_model_vbo_.bind();
     AddDataToModelVBO();
   }
-  m_model_vbo_.release();
   update();
   //    std::cout << "GetFileName Step - 2" << std::endl;
 }
@@ -67,6 +65,6 @@ void GLWidget::wheelEvent(QWheelEvent *event) {
 void GLWidget::getSettingsFromController(Settings_t *set) {
   //    std::cout << "Hello, You are in
   //    GLWidget::getSettingsFromController(Settings_t * set)" << std::endl;
-  set_ = set;
+      set_ = set;
   update();
 }

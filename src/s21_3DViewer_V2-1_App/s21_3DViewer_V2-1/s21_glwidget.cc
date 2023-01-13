@@ -10,7 +10,7 @@
 bool GLWidget::m_transparent_ = false;
 
 GLWidget::GLWidget(QWidget *parent)
-    : QOpenGLWidget(parent), m_program_(0), m_aspect_(1.0), set_(nullptr) {
+    : QOpenGLWidget(parent), m_program_(0), m_aspect_(1.0), set_(nullptr), m_normal_guro_(0) {
 
   this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -124,7 +124,7 @@ void GLWidget::initializeGL() {
 
   // Setup our vertex buffer object.
   m_model_vbo_.create();
-  m_model_vbo_.bind();
+
   //    GLfloat *p = (float*) m_model_.constTriangleData();
   //    for (int i = 0; i < m_model_.trianglesCount(); i++) {
   //        std::cout << "m_model.constTriangleData(" << i << ") = " << *p++ <<
@@ -138,6 +138,7 @@ void GLWidget::initializeGL() {
   //    }
 
   // Store the vertex attribute bindings for the program.
+    m_model_vbo_.bind();
   SetupVertexAttribs();
   // Our camera never changes in this example.
   m_camera_.setToIdentity();
@@ -149,26 +150,33 @@ void GLWidget::initializeGL() {
 }
 
 void GLWidget::AddDataToModelVBO() {
+  m_model_vbo_.bind();
+
   m_model_vbo_.allocate((m_model_.Count() + m_model_.DotsCount() +
-                       m_model_.TrianglesCount() +
-                       m_model_.TrianglesGuroCount()) *
+                       m_model_.TrianglesCount()) *
                       sizeof(GLfloat));
   m_model_vbo_.write(0, m_model_.ConstData(), m_model_.Count() * sizeof(GLfloat));
   m_model_vbo_.write(m_model_.Count() * sizeof(GLfloat), m_model_.ConstDotData(),
                    m_model_.DotsCount() * sizeof(GLfloat));
+ if (set_->NormalGuro == 0) {
+//     std::cout << "Let's load Normal" << std::endl;
   m_model_vbo_.write((m_model_.Count() + m_model_.DotsCount()) * sizeof(GLfloat),
                    m_model_.ConstTriangleData(),
                    m_model_.TrianglesCount() * sizeof(GLfloat));
+ } else {
+//     std::cout << "Let's load Guro" << std::endl;
   m_model_vbo_.write(
-      (m_model_.Count() + m_model_.DotsCount() + m_model_.TrianglesCount()) *
+      (m_model_.Count() + m_model_.DotsCount()) *
           sizeof(GLfloat),
       m_model_.ConstTriangleGuroData(),
       m_model_.TrianglesGuroCount() * sizeof(GLfloat));
+ }
   //    int size_bytes = (m_model.count() + m_model_.dotsCount() +
   //    m_model_.trianglesCount() + m_model_.trianglesGuroCount()) *
   //    sizeof(GLfloat); int size_kylo_bytes = size_bytes / 1024; std::cout <<
   //    "Model stze is " << size_bytes << "  bytes, Kb =  " << size_kylo_bytes
   //    << " Mb = " << size_kylo_bytes / 1024 << std::endl;
+  m_program_->release();
 }
 
 void GLWidget::SetupVertexAttribs() {
@@ -183,6 +191,10 @@ void GLWidget::SetupVertexAttribs() {
 }
 
 void GLWidget::paintGL() {
+    if (set_->NormalGuro != m_normal_guro_) {
+        AddDataToModelVBO();
+        m_normal_guro_ = set_->NormalGuro;
+    }
   CheckForSpecs();
 
   unary_matrix_.InitMatrix(4, 4);
@@ -237,15 +249,9 @@ void GLWidget::paintGL() {
     m_program_->setUniformValue(m_color_facets_, QVector3D(set_->RedColorFacets,
                                                         set_->GreenColorFacets,
                                                         set_->BlueColorFacets));
-    if (set_->NormalGuro == 1) {
-      glDrawArrays(GL_TRIANGLES,
-                   m_model_.LinesAmount() + m_model_.DotsAmount() +
-                       m_model_.TrianglesAmount(),
-                   m_model_.TrianglesGuroAmount());
-    } else {
-      glDrawArrays(GL_TRIANGLES, m_model_.LinesAmount() + m_model_.DotsAmount(),
+    glDrawArrays(GL_TRIANGLES, m_model_.LinesAmount() + m_model_.DotsAmount(),
                    m_model_.TrianglesAmount());
-    }
+
   }
   m_program_->release();
 }

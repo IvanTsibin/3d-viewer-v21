@@ -103,6 +103,7 @@ private:
   int m_color_light_;
   int m_color_facets_;
   int m_point_size_;
+  int m_normal_guro_;
   QMatrix4x4 m_camera_;
   s21::Afines unary_matrix_;
   s21::Afines project_matrix_;
