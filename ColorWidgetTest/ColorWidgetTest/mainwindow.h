@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_PBChooseColor_clicked();
+    void on_PBVertexColor_clicked();
 
 private:
     Ui::MainWindow *ui;

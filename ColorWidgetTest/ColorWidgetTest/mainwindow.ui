@@ -14,31 +14,31 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="PBChooseColor">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>80</x>
       <y>60</y>
-      <width>75</width>
-      <height>23</height>
+      <width>77</width>
+      <height>44</height>
      </rect>
     </property>
-    <property name="text">
-     <string>ChooseColor</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="LColor">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>100</y>
-      <width>61</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CurrentColor</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="PBVertexColor">
+       <property name="text">
+        <string>VertextColor</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="LColor">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

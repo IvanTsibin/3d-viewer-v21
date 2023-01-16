@@ -13,24 +13,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_PBChooseColor_clicked()
+void MainWindow::on_PBVertexColor_clicked()
 {
     current_color_ = GetColor();
     qDebug()<<"И Мы выбрали цвет"<<current_color_.name();
     QPalette pal = palette();
     pal.setColor(QPalette::Background, (const QColor)current_color_);
-   ui->LColor->setAutoFillBackground(true);
+    ui->LColor->setAutoFillBackground(true);
     ui->LColor->setPalette(pal);
     pal.setColor(QPalette::Background, (const QColor)current_color_);
-    ui->PBChooseColor->setAutoFillBackground(true);
-    ui->PBChooseColor->setPalette(pal);
+    ui->PBVertexColor->setAutoFillBackground(true);
+    ui->PBVertexColor->setPalette(pal);
 }
 
 QColor MainWindow::GetColor(void) {
     QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
-//    if (!color_.isValid()) {
-//         qDebug()<<"Отмена выбора цвета";
-//    }
-//    else { qDebug()<<"Выбран цвет"<<color_.name();}
     return color_;
 }

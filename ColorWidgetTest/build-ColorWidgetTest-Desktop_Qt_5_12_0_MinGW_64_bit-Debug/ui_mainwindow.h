@@ -17,6 +17,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,7 +26,9 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QPushButton *PBChooseColor;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *PBVertexColor;
     QLabel *LColor;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -38,12 +41,24 @@ public:
         MainWindow->resize(487, 407);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        PBChooseColor = new QPushButton(centralWidget);
-        PBChooseColor->setObjectName(QString::fromUtf8("PBChooseColor"));
-        PBChooseColor->setGeometry(QRect(80, 60, 75, 23));
-        LColor = new QLabel(centralWidget);
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(80, 60, 77, 44));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        PBVertexColor = new QPushButton(widget);
+        PBVertexColor->setObjectName(QString::fromUtf8("PBVertexColor"));
+
+        verticalLayout->addWidget(PBVertexColor);
+
+        LColor = new QLabel(widget);
         LColor->setObjectName(QString::fromUtf8("LColor"));
-        LColor->setGeometry(QRect(90, 100, 61, 21));
+
+        verticalLayout->addWidget(LColor);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -64,8 +79,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        PBChooseColor->setText(QApplication::translate("MainWindow", "ChooseColor", nullptr));
-        LColor->setText(QApplication::translate("MainWindow", "CurrentColor", nullptr));
+        PBVertexColor->setText(QApplication::translate("MainWindow", "VertextColor", nullptr));
+        LColor->setText(QString());
     } // retranslateUi
 
 };
