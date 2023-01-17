@@ -13,21 +13,16 @@ Controller::Controller() {
   start_set_.Multip = 1.0;
   start_set_.xLight = 0;
   start_set_.yLight = 0;
-  start_set_.RedColor = 0.2;
-  start_set_.GreenColor = 0.2;
-  start_set_.BlueColor = 0.2;
-  start_set_.RedColorLine = 0.8;
-  start_set_.GreenColorLine = 0.5;
-  start_set_.BlueColorLine = 0.2;
-  start_set_.RedColorVertex = 0.5;
-  start_set_.GreenColorVertex = 0.8;
-  start_set_.BlueColorVertex = 0.2;
-  start_set_.RedColorFacets = 0.5;
-  start_set_.GreenColorFacets = 0.2;
-  start_set_.BlueColorFacets = 0.8;
-  start_set_.RedColorLight = 1.0;
-  start_set_.GreenColorLight = 1.0;
-  start_set_.BlueColorLight = 1.0;
+//  start_set_.ColorScene.name() = "#333333";
+//  start_set_.ColorLine.name() = "#cd8033";
+//  start_set_.ColorVertex.name() = "#80cd33";
+//  start_set_.ColorFacets.name() = "#8033cd";
+//  start_set_.ColorLight.name() = "#ffffff";
+  start_set_.ColorScene.setRgbF(0.2, 0.2, 0.2);
+  start_set_.ColorLine.setRgbF(0.8, 0.5,0.2);
+  start_set_.ColorVertex.setRgbF(0.5, 0.8,0.2);
+  start_set_.ColorFacets.setRgbF(0.5, 0.2,0.8);
+  start_set_.ColorLight.setRgbF(1.0, 1.0,1.0);
   start_set_.LineWidth = 1;
   start_set_.VertexSize = 5;
   start_set_.VertexType = 1;
@@ -134,69 +129,35 @@ void Controller::SetYLight(int y_light) {
   EmitSettings();
 }
 
-void Controller::SetRedColor(int RedColor) {
-  set_for_controller_.RedColor = (float)RedColor / 255.0;
-  EmitSettings();
+void Controller::SetSceneColor(QColor SceneColor) {
+    set_for_controller_.ColorScene = SceneColor;
+    emit SendSettingsToMainWindow(&set_for_controller_);
+  SendLablesColorChangeSignal();
+EmitSettings();
 }
-void Controller::SetGreenColor(int GreenColor) {
-  set_for_controller_.GreenColor = (float)GreenColor / 255.0;
-  EmitSettings();
+void Controller::SetLineColor(QColor LineColor) {
+    set_for_controller_.ColorLine = LineColor;
+    emit SendSettingsToMainWindow(&set_for_controller_);
+  SendLablesColorChangeSignal();
+EmitSettings();
 }
-void Controller::SetBlueColor(int BlueColor) {
-  set_for_controller_.BlueColor = (float)BlueColor / 255.0;
-  EmitSettings();
+void Controller::SetVertexColor(QColor VertexColor) {
+    set_for_controller_.ColorVertex = VertexColor;
+    emit SendSettingsToMainWindow(&set_for_controller_);
+  SendLablesColorChangeSignal();
+EmitSettings();
 }
-
-void Controller::SetRedColorLine(int RedColorLine) {
-  set_for_controller_.RedColorLine = (float)RedColorLine / 255.0;
-  EmitSettings();
+void Controller::SetFacetsColor(QColor FacetsColor) {
+    set_for_controller_.ColorFacets = FacetsColor;
+    emit SendSettingsToMainWindow(&set_for_controller_);
+  SendLablesColorChangeSignal();
+EmitSettings();
 }
-void Controller::SetGreenColorLine(int GreenColorLine) {
-  set_for_controller_.GreenColorLine = (float)GreenColorLine / 255.0;
-  EmitSettings();
-}
-void Controller::SetBlueColorLine(int BlueColorLine) {
-  set_for_controller_.BlueColorLine = (float)BlueColorLine / 255.0;
-  EmitSettings();
-}
-
-void Controller::SetRedColorVertex(int RedColorVertex) {
-  set_for_controller_.RedColorVertex = (float)RedColorVertex / 255.0;
-  EmitSettings();
-}
-void Controller::SetGreenColorVertex(int GreenColorVertex) {
-  set_for_controller_.GreenColorVertex = (float)GreenColorVertex / 255.0;
-  EmitSettings();
-}
-void Controller::SetBlueColorVertex(int BlueColorVertex) {
-  set_for_controller_.BlueColorVertex = (float)BlueColorVertex / 255.0;
-  EmitSettings();
-}
-
-void Controller::SetRedColorFacets(int RedColorFacets) {
-  set_for_controller_.RedColorFacets = (float)RedColorFacets / 255.0;
-  EmitSettings();
-}
-void Controller::SetGreenColorFacets(int GreenColorFacets) {
-  set_for_controller_.GreenColorFacets = (float)GreenColorFacets / 255.0;
-  EmitSettings();
-}
-void Controller::SetBlueColorFacets(int BlueColorFacets) {
-  set_for_controller_.BlueColorFacets = (float)BlueColorFacets / 255.0;
-  EmitSettings();
-}
-
-void Controller::SetRedColorLight(int RedColorLight) {
-  set_for_controller_.RedColorLight = (float)RedColorLight / 255.0;
-  EmitSettings();
-}
-void Controller::SetGreenColorLight(int GreenColorLight) {
-  set_for_controller_.GreenColorLight = (float)GreenColorLight / 255.0;
-  EmitSettings();
-}
-void Controller::SetBlueColorLight(int BlueColorLight) {
-  set_for_controller_.BlueColorLight = (float)BlueColorLight / 255.0;
-  EmitSettings();
+void Controller::SetLightColor(QColor LightColor) {
+    set_for_controller_.ColorLight = LightColor;
+    emit SendSettingsToMainWindow(&set_for_controller_);
+  SendLablesColorChangeSignal();
+EmitSettings();
 }
 
 void Controller::SetLineWidth(int LineWidth) {
@@ -238,25 +199,23 @@ void Controller::SetDashLineSignal(int signal) {
 }
 
 void Controller::SaveStartPos() {
-  //    std::cout << "Let's save file - Let's write in it!!!" << std::endl;
+  std::cout << "Let's save file - Let's write in it!!!" << std::endl;
   setlocale(LC_ALL, "C");
   FILE *start_pos;
-  start_pos = fopen("start_pos-v2.pos", "w");
-  //    std::cout << "on save set_for_controller_.Multip = " <<
-  //    set_for_controller_.Multip  << std::endl;
+  start_pos = fopen("start_pos-v3.pos", "w");
   fprintf(start_pos, "%.2lf %.2lf %.2lf %.2lf ", set_for_controller_.Multip,
-          set_for_controller_.RedColor, set_for_controller_.GreenColor,
-          set_for_controller_.BlueColor);
+          set_for_controller_.ColorScene.redF(), set_for_controller_.ColorScene.greenF(),
+          set_for_controller_.ColorScene.blueF());
   fprintf(start_pos, "%.2lf %.2lf %.2lf %.2lf %.2lf %.2lf ",
-          set_for_controller_.RedColorLine, set_for_controller_.GreenColorLine,
-          set_for_controller_.BlueColorLine, set_for_controller_.RedColorVertex,
-          set_for_controller_.GreenColorVertex,
-          set_for_controller_.BlueColorVertex);
+          set_for_controller_.ColorLine.redF(), set_for_controller_.ColorLine.greenF(),
+          set_for_controller_.ColorLine.blueF(), set_for_controller_.ColorVertex.redF(),
+          set_for_controller_.ColorVertex.greenF(),
+          set_for_controller_.ColorVertex.blueF());
   fprintf(
       start_pos, "%.2lf %.2lf %.2lf %.2lf %.2lf %.2lf ",
-      set_for_controller_.RedColorFacets, set_for_controller_.GreenColorFacets,
-      set_for_controller_.BlueColorFacets, set_for_controller_.RedColorLight,
-      set_for_controller_.GreenColorLight, set_for_controller_.BlueColorLight);
+      set_for_controller_.ColorFacets.redF(), set_for_controller_.ColorFacets.greenF(),
+      set_for_controller_.ColorFacets.blueF(), set_for_controller_.ColorLight.redF(),
+      set_for_controller_.ColorLight.greenF(), set_for_controller_.ColorLight.blueF());
   fprintf(start_pos, "%d %d %d %d %d %d ", set_for_controller_.xRot,
           set_for_controller_.yRot, set_for_controller_.zRot,
           set_for_controller_.xMove, set_for_controller_.yMove,
@@ -268,29 +227,31 @@ void Controller::SaveStartPos() {
   fprintf(start_pos, "%d %d %d ", set_for_controller_.xLight,
           set_for_controller_.yLight, set_for_controller_.NormalGuro);
   fclose(start_pos);
-//  printf("%+.2f %+.2f %+.2f %+.2f ", set_for_controller_.Multip,
-//         set_for_controller_.RedColor, set_for_controller_.GreenColor,
-//         set_for_controller_.BlueColor);
-//  printf("%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
-//         set_for_controller_.RedColorLine, set_for_controller_.GreenColorLine,
-//         set_for_controller_.BlueColorLine, set_for_controller_.RedColorVertex,
-//         set_for_controller_.GreenColorVertex,
-//         set_for_controller_.BlueColorVertex);
-//  printf(
-//      "%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
-//      set_for_controller_.RedColorFacets, set_for_controller_.GreenColorFacets,
-//      set_for_controller_.BlueColorFacets, set_for_controller_.RedColorLight,
-//      set_for_controller_.GreenColorLight, set_for_controller_.BlueColorLight);
-//  printf("%d %d %d %d %d %d ", set_for_controller_.xRot,
-//         set_for_controller_.yRot, set_for_controller_.zRot,
-//         set_for_controller_.xMove, set_for_controller_.yMove,
-//         set_for_controller_.zMove);
-//  printf("%d %d %d %d %d %d ", set_for_controller_.LineWidth,
-//         set_for_controller_.VertexSize, set_for_controller_.VertexType,
-//         set_for_controller_.perspect, set_for_controller_.lineType,
-//         set_for_controller_.facets);
-//  printf("%d %d %d\n", set_for_controller_.xLight, set_for_controller_.yLight,
-//         set_for_controller_.NormalGuro);
+
+  printf("%+.2f %+.2f %+.2f %+.2f ", set_for_controller_.Multip,
+          set_for_controller_.ColorScene.redF(), set_for_controller_.ColorScene.greenF(),
+          set_for_controller_.ColorScene.blueF());
+  printf("%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
+          set_for_controller_.ColorLine.redF(), set_for_controller_.ColorLine.greenF(),
+          set_for_controller_.ColorLine.blueF(), set_for_controller_.ColorVertex.redF(),
+          set_for_controller_.ColorVertex.greenF(),
+          set_for_controller_.ColorVertex.blueF());
+  printf(
+      "%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
+      set_for_controller_.ColorFacets.redF(), set_for_controller_.ColorFacets.greenF(),
+      set_for_controller_.ColorFacets.blueF(), set_for_controller_.ColorLight.redF(),
+      set_for_controller_.ColorLight.greenF(), set_for_controller_.ColorLight.blueF());
+  printf("%d %d %d %d %d %d ", set_for_controller_.xRot,
+          set_for_controller_.yRot, set_for_controller_.zRot,
+          set_for_controller_.xMove, set_for_controller_.yMove,
+          set_for_controller_.zMove);
+  printf("%d %d %d %d %d %d ", set_for_controller_.LineWidth,
+          set_for_controller_.VertexSize, set_for_controller_.VertexType,
+          set_for_controller_.perspect, set_for_controller_.lineType,
+          set_for_controller_.facets);
+  printf("%d %d %d \n", set_for_controller_.xLight,
+          set_for_controller_.yLight, set_for_controller_.NormalGuro);
+
 }
 
 void Controller::GetSavePictureSignal(char *str_file_name, int type) {
@@ -299,8 +260,10 @@ void Controller::GetSavePictureSignal(char *str_file_name, int type) {
   pictureFileName_ = str_file_name;
   MySavePicture_->connectWidget(controled_widget_);
   gifCounter_ = 0;
-  emit SendSavePictureSignal(str_file_name, type, set_for_controller_.aspect,
+  if (type == 3) {GetSaveYRotGifSignal();}
+  emit SendSavePictureSignal(pictureFileName_, type_, set_for_controller_.aspect,
                              gifCounter_);
+
 }
 
 void Controller::GetSaveYRotGifSignal(void) {
@@ -357,32 +320,50 @@ void Controller::RequestFromMainWindowForSettings(void) {
   emit SendSettingsToMainWindow(&start_set_);
 }
 
+
 void Controller::ReadStartPos() {
-  //    std::cout << "Controller::read_start_pos() " << std::endl;
+      std::cout << " Controller::ReadStartPosNew() " << std::endl;
   FILE *start_pos;
   setlocale(LC_ALL, "C");
   int error = 0;
-  if ((start_pos = fopen("start_pos-v2.pos", "r")) == NULL) {
+  float
+            RedColor ,
+            GreenColor ,
+            BlueColor ,
+            RedColorLine ,
+            GreenColorLine ,
+            BlueColorLine ,
+            RedColorVertex ,
+            GreenColorVertex ,
+            BlueColorVertex ,
+            RedColorFacets ,
+            GreenColorFacets ,
+            BlueColorFacets ,
+            RedColorLight ,
+            GreenColorLight ,
+            BlueColorLight;
+  if ((start_pos = fopen("start_pos-v3.pos", "r")) == NULL) {
+     std::cout << " Didn't find any file - sorry - have to start with start_set_ " << std::endl;
     emit SendSettingsToMainWindow(&start_set_);
     SaveStartPos();
   } else {
     error +=
         fscanf(start_pos, "%f%f%f%f", &set_for_controller_.Multip,
-               &set_for_controller_.RedColor, &set_for_controller_.GreenColor,
-               &set_for_controller_.BlueColor);
+               &RedColor, &GreenColor,
+               &BlueColor);
     error += fscanf(
-        start_pos, "%f%f%f%f%f%f", &set_for_controller_.RedColorLine,
-        &set_for_controller_.GreenColorLine, &set_for_controller_.BlueColorLine,
-        &set_for_controller_.RedColorVertex,
-        &set_for_controller_.GreenColorVertex,
-        &set_for_controller_.BlueColorVertex);
+        start_pos, "%f%f%f%f%f%f", &RedColorLine,
+        &GreenColorLine, &BlueColorLine,
+        &RedColorVertex,
+        &GreenColorVertex,
+        &BlueColorVertex);
     error +=
-        fscanf(start_pos, "%f%f%f%f%f%f", &set_for_controller_.RedColorFacets,
-               &set_for_controller_.GreenColorFacets,
-               &set_for_controller_.BlueColorFacets,
-               &set_for_controller_.RedColorLight,
-               &set_for_controller_.GreenColorLight,
-               &set_for_controller_.BlueColorLight);
+        fscanf(start_pos, "%f%f%f%f%f%f", &RedColorFacets,
+               &GreenColorFacets,
+               &BlueColorFacets,
+               &RedColorLight,
+               &GreenColorLight,
+               &BlueColorLight);
     error += fscanf(start_pos, "%d%d%d%d%d%d", &set_for_controller_.xRot,
                     &set_for_controller_.yRot, &set_for_controller_.zRot,
                     &set_for_controller_.xMove, &set_for_controller_.yMove,
@@ -395,37 +376,39 @@ void Controller::ReadStartPos() {
     error +=
         fscanf(start_pos, "%d%d%d", &set_for_controller_.xLight,
                &set_for_controller_.yLight, &set_for_controller_.NormalGuro);
-
-//    printf("%+.2f %+.2f %+.2f %+.2f ", set_for_controller_.Multip,
-//           set_for_controller_.RedColor, set_for_controller_.GreenColor,
-//           set_for_controller_.BlueColor);
-//    printf("%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
-//           set_for_controller_.RedColorLine, set_for_controller_.GreenColorLine,
-//           set_for_controller_.BlueColorLine,
-//           set_for_controller_.RedColorVertex,
-//           set_for_controller_.GreenColorVertex,
-//           set_for_controller_.BlueColorVertex);
-//    printf("%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
-//           set_for_controller_.RedColorFacets,
-//           set_for_controller_.GreenColorFacets,
-//           set_for_controller_.BlueColorFacets,
-//           set_for_controller_.RedColorLight,
-//           set_for_controller_.GreenColorLight,
-//           set_for_controller_.BlueColorLight);
-//    printf("%d %d %d %d %d %d ", set_for_controller_.xRot,
-//           set_for_controller_.yRot, set_for_controller_.zRot,
-//           set_for_controller_.xMove, set_for_controller_.yMove,
-//           set_for_controller_.zMove);
-//    printf("%d %d %d %d %d %d ", set_for_controller_.LineWidth,
-//           set_for_controller_.VertexSize, set_for_controller_.VertexType,
-//           set_for_controller_.perspect, set_for_controller_.lineType,
-//           set_for_controller_.facets);
-//    printf("%d %d %d\n", set_for_controller_.xLight, set_for_controller_.yLight,
-//           set_for_controller_.NormalGuro);
+    set_for_controller_.ColorScene.setRgbF(RedColor, GreenColor, BlueColor);
+    set_for_controller_.ColorLine.setRgbF(RedColorLine, GreenColorLine,BlueColorLine);
+    set_for_controller_.ColorVertex.setRgbF(RedColorVertex, GreenColorVertex,BlueColorVertex);
+    set_for_controller_.ColorFacets.setRgbF(RedColorFacets, GreenColorFacets,BlueColorFacets);
+    set_for_controller_.ColorLight.setRgbF(RedColorLight, GreenColorLight,BlueColorLight);
   }
   fclose(start_pos);
-  //    std::cout << "on Load m_Multip = " << Multip << std::endl;
-  if (error == 31) {
+    printf("%+.2f %+.2f %+.2f %+.2f ", set_for_controller_.Multip,
+            set_for_controller_.ColorScene.redF(), set_for_controller_.ColorScene.greenF(),
+            set_for_controller_.ColorScene.blueF());
+    printf("%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
+            set_for_controller_.ColorLine.redF(), set_for_controller_.ColorLine.greenF(),
+            set_for_controller_.ColorLine.blueF(), set_for_controller_.ColorVertex.redF(),
+            set_for_controller_.ColorVertex.greenF(),
+            set_for_controller_.ColorVertex.blueF());
+    printf(
+        "%+.2f %+.2f %+.2f %+.2f %+.2f %+.2f ",
+        set_for_controller_.ColorFacets.redF(), set_for_controller_.ColorFacets.greenF(),
+        set_for_controller_.ColorFacets.blueF(), set_for_controller_.ColorLight.redF(),
+        set_for_controller_.ColorLight.greenF(), set_for_controller_.ColorLight.blueF());
+    printf("%d %d %d %d %d %d ", set_for_controller_.xRot,
+            set_for_controller_.yRot, set_for_controller_.zRot,
+            set_for_controller_.xMove, set_for_controller_.yMove,
+            set_for_controller_.zMove);
+    printf("%d %d %d %d %d %d ", set_for_controller_.LineWidth,
+            set_for_controller_.VertexSize, set_for_controller_.VertexType,
+            set_for_controller_.perspect, set_for_controller_.lineType,
+            set_for_controller_.facets);
+    printf("%d %d %d \n", set_for_controller_.xLight,
+            set_for_controller_.yLight, set_for_controller_.NormalGuro);
+
+  std::cout << "error = " << error << std::endl;
+    if (error == 31) {
     emit SendSettingsToMainWindow(&set_for_controller_);
   } else {
     emit SendSettingsToMainWindow(&start_set_);

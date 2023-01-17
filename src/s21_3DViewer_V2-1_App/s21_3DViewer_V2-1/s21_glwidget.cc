@@ -12,7 +12,37 @@ bool GLWidget::m_transparent_ = false;
 GLWidget::GLWidget(QWidget *parent)
     : QOpenGLWidget(parent), m_program_(0), m_aspect_(1.0), set_(nullptr), m_normal_guro_(0) {
 
-  this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    start_set_.facets_on = true;
+    start_set_.xRot = 0;
+    start_set_.yRot = 0;
+    start_set_.zRot = 0;
+    start_set_.xMove = 0;
+    start_set_.yMove = 0;
+    start_set_.zMove = 0;
+    start_set_.Multip = 1.0;
+    start_set_.xLight = 0;
+    start_set_.yLight = 0;
+//    start_set_.ColorScene.name() = "#333333";
+//    start_set_.ColorLine.name() = "#cd8033";
+//    start_set_.ColorVertex.name() = "#80cd33";
+//    start_set_.ColorFacets.name() = "#8033cd";
+//    start_set_.ColorLight.name() = "#ffffff";
+    start_set_.ColorScene.setRgbF(0.2, 0.2, 0.2);
+    start_set_.ColorLine.setRgbF(0.8, 0.5,0.2);
+    start_set_.ColorVertex.setRgbF(0.5, 0.8,0.2);
+    start_set_.ColorFacets.setRgbF(0.5, 0.2,0.8);
+    start_set_.ColorLight.setRgbF(1.0, 1.0,1.0);
+    start_set_.LineWidth = 1;
+    start_set_.VertexSize = 5;
+    start_set_.VertexType = 1;
+    start_set_.perspect = 1;
+    start_set_.lineType = 0;
+    start_set_.NormalGuro = 1;
+    start_set_.aspect = 1.0;
+    start_set_.facets = 1;
+    set_ = &start_set_;
+
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   this->setMinimumHeight(100);
   this->setMinimumWidth(100);
@@ -92,7 +122,8 @@ void GLWidget::initializeGL() {
 
   initializeOpenGLFunctions();
 
-  glClearColor(set_->RedColor, set_->GreenColor, set_->BlueColor,
+//  std::cout << "set_->ColorScene.redF() = " <<set_->ColorScene.redF() << std::endl;
+  glClearColor(set_->ColorScene.redF(), set_->ColorScene.greenF(), set_->ColorScene.blueF(),
                m_transparent_ ? 0 : 1);
 
   m_program_ = new QOpenGLShaderProgram;
@@ -227,28 +258,36 @@ void GLWidget::paintGL() {
   QMatrix3x3 normalMatrix = m_test_.normalMatrix();
   m_program_->setUniformValue(m_normal_matrix_loc_, normalMatrix);
   m_program_->setUniformValue(m_point_size_, (GLfloat)set_->VertexSize);
+//  m_program_->setUniformValue(
+//      m_color_line_,
+//      QVector3D(set_->RedColorLine, set_->GreenColorLine, set_->BlueColorLine));
+
   m_program_->setUniformValue(
       m_color_line_,
-      QVector3D(set_->RedColorLine, set_->GreenColorLine, set_->BlueColorLine));
-  m_program_->setUniformValue(m_color_light_, QVector3D(set_->RedColorLight,
-                                                     set_->GreenColorLight,
-                                                     set_->BlueColorLight));
+      QVector3D(set_->ColorLine.redF(), set_->ColorLine.greenF(), set_->ColorLine.blueF()));
+
+
+
+
+  m_program_->setUniformValue(m_color_light_, QVector3D(set_->ColorLight.redF(),
+                                                     set_->ColorLight.greenF(),
+                                                     set_->ColorLight.blueF()));
   m_program_->setUniformValue(m_color_flag_, 2);
   if (set_->LineWidth != 0)
     glDrawArrays(GL_LINES, 0, m_model_.LinesAmount());
   if ((set_->VertexType == 1 || set_->VertexType == 2) &&
       set_->VertexSize != 0) {
     m_program_->setUniformValue(m_color_flag_, 1);
-    m_program_->setUniformValue(m_color_vertex_, QVector3D(set_->RedColorVertex,
-                                                        set_->GreenColorVertex,
-                                                        set_->BlueColorVertex));
+    m_program_->setUniformValue(m_color_vertex_, QVector3D(set_->ColorVertex.redF(),
+                                                        set_->ColorVertex.greenF(),
+                                                        set_->ColorVertex.blueF()));
     glDrawArrays(GL_POINTS, m_model_.LinesAmount(), m_model_.DotsAmount());
   }
   if (set_->facets == 1) {
     m_program_->setUniformValue(m_color_flag_, 3);
-    m_program_->setUniformValue(m_color_facets_, QVector3D(set_->RedColorFacets,
-                                                        set_->GreenColorFacets,
-                                                        set_->BlueColorFacets));
+    m_program_->setUniformValue(m_color_facets_, QVector3D(set_->ColorFacets.redF(),
+                                                        set_->ColorFacets.greenF(),
+                                                        set_->ColorFacets.blueF()));
     glDrawArrays(GL_TRIANGLES, m_model_.LinesAmount() + m_model_.DotsAmount(),
                    m_model_.TrianglesAmount());
 
@@ -257,7 +296,7 @@ void GLWidget::paintGL() {
 }
 
 void GLWidget::CheckForSpecs() {
-  glClearColor(set_->RedColor, set_->GreenColor, set_->BlueColor,
+  glClearColor(set_->ColorScene.redF(), set_->ColorScene.greenF(), set_->ColorScene.blueF(),
                m_transparent_ ? 0 : 1);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glEnable(GL_DEPTH_TEST);

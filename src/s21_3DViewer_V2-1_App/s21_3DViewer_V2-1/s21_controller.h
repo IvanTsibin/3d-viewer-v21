@@ -6,6 +6,9 @@
 #include <QObject>
 #include <QTimer>
 #include <iostream>
+#include <QColorDialog>
+#include <QDebug>
+#include <QPalette>
 
 class Controller : public QObject {
   Q_OBJECT
@@ -31,23 +34,11 @@ public slots:
   void SetZMove(int z_move);
   void SetXLight(int x_light);
   void SetYLight(int y_light);
-  void SetRedColor(int RedColor);
-  void SetGreenColor(int GreenColor);
-  void SetBlueColor(int BlueColor);
-  void SetRedColorLine(int RedColorLine);
-  void SetGreenColorLine(int GreenColorLine);
-  void SetBlueColorLine(int BlueColorLine);
-  void SetRedColorVertex(int RedColorVertex);
-  void SetGreenColorVertex(int GreenColorVertex);
-  void SetBlueColorVertex(int BlueColorVertex);
-
-  void SetRedColorFacets(int RedColorFacets);
-  void SetGreenColorFacets(int GreenColorFacets);
-  void SetBlueColorFacets(int BlueColorFacets);
-
-  void SetRedColorLight(int RedColorLight);
-  void SetGreenColorLight(int GreenColorLight);
-  void SetBlueColorLight(int BlueColorLight);
+  void SetSceneColor(QColor SceneColor);
+  void SetLineColor(QColor LineColor);
+  void SetVertexColor(QColor VertexColor);
+  void SetFacetsColor(QColor FacetsColor);
+  void SetLightColor(QColor LightColor);
 
   void SetLineWidth(int LineWidth);
   void SetVertexSize(int VertexSize);
@@ -71,6 +62,7 @@ signals:
   void SendSavePictureSignal(char str[], int type, float aspect,
                              int gifCounter);
   void SendSettingsToMainWindow(Settings_t *);
+  void SendLablesColorChangeSignal(void);
 
 private:
   Settings_t set_for_controller_, start_set_;
@@ -82,7 +74,6 @@ private:
   GLWidget *controled_widget_;
   SavePictures *MySavePicture_;
   QTimer *timer_;
-  //    double convert_str_to_double(char number[], int counter);
   void EmitSettings();
   void StepsForGifPicture();
 };

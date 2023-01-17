@@ -22,21 +22,11 @@ typedef struct Settings {
   float Multip;
   int xLight;
   int yLight;
-  float RedColor;
-  float GreenColor;
-  float BlueColor;
-  float RedColorLine;
-  float GreenColorLine;
-  float BlueColorLine;
-  float RedColorVertex;
-  float GreenColorVertex;
-  float BlueColorVertex;
-  float RedColorFacets;
-  float GreenColorFacets;
-  float BlueColorFacets;
-  float RedColorLight;
-  float GreenColorLight;
-  float BlueColorLight;
+  QColor ColorScene;
+  QColor ColorLine;
+  QColor ColorVertex;
+  QColor ColorFacets;
+  QColor ColorLight;
   int LineWidth;
   int VertexSize;
   int VertexType;
@@ -84,7 +74,7 @@ protected:
 private:
   void SetupVertexAttribs();
   void AddDataToModelVBO();
-
+  Settings_t start_set_;
   Settings_t *set_;
   GLfloat m_aspect_;
   bool m_core_;

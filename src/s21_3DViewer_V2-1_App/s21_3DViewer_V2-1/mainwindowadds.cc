@@ -50,36 +50,6 @@ void MainWindow::ConnectControllerToMainWidget(void) {
             &Controller::SetXLight);
     connect(ui->yLightSlider, &QSlider::valueChanged, MyController_,
             &Controller::SetYLight);
-    connect(this, &MainWindow::SendRedColor, MyController_,
-            &Controller::SetRedColor);
-    connect(this, &MainWindow::SendGreenColor, MyController_,
-            &Controller::SetGreenColor);
-    connect(this, &MainWindow::SendBlueColor, MyController_,
-            &Controller::SetBlueColor);
-    connect(this, &MainWindow::SendRedColorLine, MyController_,
-            &Controller::SetRedColorLine);
-    connect(this, &MainWindow::SendGreenColorLine, MyController_,
-            &Controller::SetGreenColorLine);
-    connect(this, &MainWindow::SendBlueColorLine, MyController_,
-            &Controller::SetBlueColorLine);
-    connect(this, &MainWindow::SendRedColorVertex, MyController_,
-            &Controller::SetRedColorVertex);
-    connect(this, &MainWindow::SendGreenColorVertex, MyController_,
-            &Controller::SetGreenColorVertex);
-    connect(this, &MainWindow::SendBlueColorVertex, MyController_,
-            &Controller::SetBlueColorVertex);
-    connect(this, &MainWindow::SendRedColorFacets, MyController_,
-            &Controller::SetRedColorFacets);
-    connect(this, &MainWindow::SendGreenColorFacets, MyController_,
-            &Controller::SetGreenColorFacets);
-    connect(this, &MainWindow::SendBlueColorFacets, MyController_,
-            &Controller::SetBlueColorFacets);
-    connect(this, &MainWindow::SendRedColorLight, MyController_,
-            &Controller::SetRedColorLight);
-    connect(this, &MainWindow::SendGreenColorLight, MyController_,
-            &Controller::SetGreenColorLight);
-    connect(this, &MainWindow::SendBlueColorLight, MyController_,
-            &Controller::SetBlueColorLight);
     connect(this, &MainWindow::SendLineWidth, MyController_,
             &Controller::SetLineWidth);
     connect(this, &MainWindow::SendVertexSize, MyController_,
@@ -96,8 +66,35 @@ void MainWindow::ConnectControllerToMainWidget(void) {
             &Controller::GetNormalGuroSignal);
     connect(this, &MainWindow::SendSavePictureSignal, MyController_,
             &Controller::GetSavePictureSignal);
-    connect(ui->PByRotGif, &QPushButton::clicked, MyController_,
-            &Controller::GetSaveYRotGifSignal);
+
+    connect(MyController_, &Controller::SendLablesColorChangeSignal, this, &MainWindow::SetUpColorLablesColor);
+
+    connect(this, &MainWindow::SendSceneColor, MyController_, &Controller::SetSceneColor);
+    connect(this, &MainWindow::SendLineColor, MyController_, &Controller::SetLineColor);
+    connect(this, &MainWindow::SendVertexColor, MyController_, &Controller::SetVertexColor);
+    connect(this, &MainWindow::SendFacetsColor, MyController_, &Controller::SetFacetsColor);
+    connect(this, &MainWindow::SendLightColor, MyController_, &Controller::SetLightColor);
+}
+
+void MainWindow::LoadFileName(void) {
+    QString str = QFileDialog::getOpenFileName(
+        this, tr("Choose obj file"), QDir::currentPath(),
+        tr("OBJ Image (*.obj);; All Files (*.*);; JPEG Image (*.jpg)"));
+    QFileInfo fileinfo(str);
+    QString str_1 = fileinfo.fileName();
+    ui->ObjFileName->setText(str_1);
+    QString str_2 = fileinfo.filePath();
+    ui->ObjFilePath->setText(str_2);
+    Draw();
+}
+
+void MainWindow::Draw(void) {
+    char path[255] = "";
+    if (ui->ObjFilePath->text() != "home directory" || ui->ObjFilePath->text() != "") {
+      QByteArray bytes_2 = ui->ObjFilePath->text().toLocal8Bit();
+      strcpy(path, bytes_2.data());
+      emit SendFileName(path);
+    }
 }
 
 void MainWindow::on_MainWindow_iconSizeChanged(const QSize &iconSize) {
@@ -106,23 +103,11 @@ void MainWindow::on_MainWindow_iconSizeChanged(const QSize &iconSize) {
 }
 
 void MainWindow::on_InputObject_2_clicked() {
-  QString str = QFileDialog::getOpenFileName(
-      this, tr("Choose obj file"), QDir::currentPath(),
-      tr("OBJ Image (*.obj);; All Files (*.*);; JPEG Image (*.jpg)"));
-  QFileInfo fileinfo(str);
-  QString str_1 = fileinfo.fileName();
-  ui->ObjFileName->setText(str_1);
-  QString str_2 = fileinfo.filePath();
-  ui->ObjFilePath->setText(str_2);
+    LoadFileName();
 }
 
 void MainWindow::on_PBDraw_2_clicked() {
-  char path[255] = "";
-  if (ui->ObjFilePath->text() != "home directory" || ui->ObjFilePath->text() != "") {
-    QByteArray bytes_2 = ui->ObjFilePath->text().toLocal8Bit();
-    strcpy(path, bytes_2.data());
-    emit SendFileName(path);
-  }
+    Draw();
 }
 
 void MainWindow::GetVertexesAmount(int amount) {
@@ -135,65 +120,6 @@ void MainWindow::GetFacetsAmount(int amount) {
   ui->LBAmountOfFacets_2->setText(facets_amount_str);
 }
 
-void MainWindow::on_SBRedColor_valueChanged(int arg1) {
-  emit SendRedColor(arg1);
-}
-
-void MainWindow::on_SBGreenColor_valueChanged(int arg1) {
-  emit SendGreenColor(arg1);
-}
-
-void MainWindow::on_SBBlueColor_valueChanged(int arg1) {
-  emit SendBlueColor(arg1);
-}
-
-void MainWindow::on_SBRedColorLine_valueChanged(int arg1) {
-  emit SendRedColorLine(arg1);
-}
-
-void MainWindow::on_SBGreenColorLine_valueChanged(int arg1) {
-  emit SendGreenColorLine(arg1);
-}
-
-void MainWindow::on_SBBlueColorLine_valueChanged(int arg1) {
-  emit SendBlueColorLine(arg1);
-}
-
-void MainWindow::on_SBRedColorVertex_valueChanged(int arg1) {
-  emit SendRedColorVertex(arg1);
-}
-
-void MainWindow::on_SBGreenColorVertex_valueChanged(int arg1) {
-  emit SendGreenColorVertex(arg1);
-}
-
-void MainWindow::on_SBBlueColorVertex_valueChanged(int arg1) {
-  emit SendBlueColorVertex(arg1);
-}
-
-void MainWindow::on_SBRedFacets_valueChanged(int arg1) {
-  emit SendRedColorFacets(arg1);
-}
-
-void MainWindow::on_SBGreenFacets_valueChanged(int arg1) {
-  emit SendGreenColorFacets(arg1);
-}
-
-void MainWindow::on_SBBlueFacets_valueChanged(int arg1) {
-  emit SendBlueColorFacets(arg1);
-}
-
-void MainWindow::on_SBRedLight_valueChanged(int arg1) {
-  emit SendRedColorLight(arg1);
-}
-
-void MainWindow::on_SBGreenLight_valueChanged(int arg1) {
-  emit SendGreenColorLight(arg1);
-}
-
-void MainWindow::on_SBBlueLight_valueChanged(int arg1) {
-  emit SendBlueColorLight(arg1);
-}
 
 void MainWindow::on_SBLineWidth_valueChanged(int arg1) {
   //    std::cout << "MainWindow::on_SBLineWidth_valueChanged(int arg1) arg1 = "
@@ -231,7 +157,7 @@ void MainWindow::ReadStartPos() {
   //    std::cout << "MainWindow::ReadStartPos() MWSet_.Multip = " <<
   //    MWSet_.Multip << std::endl;
   FILE *start_pos;
-  if ((start_pos = fopen("start_pos-v2.pos", "r")) == NULL) {
+  if ((start_pos = fopen("start_pos-v3.pos", "r")) == NULL) {
     emit SendSaveSettingsSignal();
   } else {
     emit SendRequestForSavedSettings();
@@ -249,36 +175,6 @@ void MainWindow::ApplySettingsToMainWindow(void) {
   ui->MultipSlider->setValue((int)(MWSet_.Multip * 100));
   ui->zMoveSlider->setSliderPosition((int)MWSet_.Multip);
   ui->MultipSlider->repaint();
-  ui->SBRedColor->setValue((int)(MWSet_.RedColor * 255));
-  ui->SBRedColor->repaint();
-  ui->SBGreenColor->setValue((int)(MWSet_.GreenColor * 255));
-  ui->SBGreenColor->repaint();
-  ui->SBBlueColor->setValue((int)(MWSet_.BlueColor * 255));
-  ui->SBBlueColor->repaint();
-  ui->SBRedColorLine->setValue((int)(MWSet_.RedColorLine * 255));
-  ui->SBRedColorLine->repaint();
-  ui->SBGreenColorLine->setValue((int)(MWSet_.GreenColorLine * 255));
-  ui->SBGreenColorLine->repaint();
-  ui->SBBlueColorLine->setValue((int)(MWSet_.BlueColorLine * 255));
-  ui->SBBlueColorLine->repaint();
-  ui->SBRedColorVertex->setValue((int)(MWSet_.RedColorVertex * 255));
-  ui->SBRedColorVertex->repaint();
-  ui->SBGreenColorVertex->setValue((int)(MWSet_.GreenColorVertex * 255));
-  ui->SBGreenColorVertex->repaint();
-  ui->SBBlueColorVertex->setValue((int)(MWSet_.BlueColorVertex * 255));
-  ui->SBBlueColorVertex->repaint();
-  ui->SBRedFacets->setValue((int)(MWSet_.RedColorFacets * 255));
-  ui->SBRedFacets->repaint();
-  ui->SBGreenFacets->setValue((int)(MWSet_.GreenColorFacets * 255));
-  ui->SBGreenFacets->repaint();
-  ui->SBBlueFacets->setValue((int)(MWSet_.BlueColorFacets * 255));
-  ui->SBBlueFacets->repaint();
-  ui->SBRedLight->setValue((int)(MWSet_.RedColorLight * 255));
-  ui->SBRedLight->repaint();
-  ui->SBGreenLight->setValue((int)(MWSet_.GreenColorLight * 255));
-  ui->SBGreenLight->repaint();
-  ui->SBBlueLight->setValue((int)(MWSet_.BlueColorLight * 255));
-  ui->SBBlueLight->repaint();
   ui->xSlider->setValue(MWSet_.xRot);
   ui->xSlider->setSliderPosition(MWSet_.xRot);
   ui->xSlider->repaint();
@@ -317,6 +213,7 @@ void MainWindow::ApplySettingsToMainWindow(void) {
   ui->CBFacets->repaint();
   ui->CBNormalGuro->setChecked(bool(MWSet_.NormalGuro));
   ui->CBNormalGuro->repaint();
+  SetUpColorLablesColor();
 }
 
 void MainWindow::on_PBToZero_clicked() {
@@ -341,6 +238,21 @@ void MainWindow::SavePictureViaType(int type) {
   }
   emit SendSavePictureSignal(path, type);
 }
+
+void MainWindow::on_ALoadModel_triggered()
+{
+    LoadFileName();
+}
+
+void MainWindow::on_ASaveFreeGif_triggered() { SavePictureViaType(2); }
+
+void MainWindow::on_PByRotGif_clicked() { SavePictureViaType(3); }
+
+void MainWindow::on_ASaveYRotGif_triggered() { SavePictureViaType(3); }
+
+void MainWindow::on_ASaveJpg_triggered(){ SavePictureViaType(0); }
+
+void MainWindow::on_ASaveBmp_triggered(){ SavePictureViaType(1); }
 
 void MainWindow::on_xSlider_valueChanged(int value) {
   ui->SBxRot->setValue(value / 16);
@@ -424,8 +336,6 @@ void MainWindow::on_DSByLight_valueChanged(double arg1) {
   ui->yLightSlider->setSliderPosition((int)(arg1 * 100));
 }
 
-void MainWindow::on_PByRotGif_clicked() { on_PBGifMovie_clicked(); }
-
 void MainWindow::on_CBNormalGuro_toggled(bool checked) {
   emit SendNormalGuroSignal((int)checked);
 }
@@ -435,3 +345,60 @@ void MainWindow::GetSettingsFromController(Settings_t *set_) {
   //   std::cout << "MainWindow::GetSettingsFromController(settings_t *set_)
   //   MWSet_.facets = " << MWSet_.facets  << std::endl;
 }
+
+void MainWindow::SetUpColorLablesColor(void) {
+    std::cout << "Helo. you are in MainWindow::SetUpColorLablesColor(void)" << std::endl;
+    ui->LSceneColor->setAutoFillBackground(true);
+    ui->LLineColor->setAutoFillBackground(true);
+    ui->LVertexColor->setAutoFillBackground(true);
+    ui->LFacetsColor->setAutoFillBackground(true);
+    ui->LLightColor->setAutoFillBackground(true);
+    QPalette pal = palette();
+    pal.setColor(QPalette::Background, (const QColor)MWSet_.ColorScene);
+    ui->LSceneColor->setPalette(pal);
+    pal.setColor(QPalette::Background, (const QColor)MWSet_.ColorLine);
+    ui->LLineColor->setPalette(pal);
+    pal.setColor(QPalette::Background, (const QColor)MWSet_.ColorVertex);
+    ui->LVertexColor->setPalette(pal);
+    pal.setColor(QPalette::Background, (const QColor)MWSet_.ColorFacets);
+    ui->LFacetsColor->setPalette(pal);
+    pal.setColor(QPalette::Background, (const QColor)MWSet_.ColorLight);
+    ui->LLightColor->setPalette(pal);
+}
+
+
+void MainWindow::on_PBSceneColor_clicked()
+{
+    QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
+    emit SendSceneColor(color_);
+}
+
+
+void MainWindow::on_PBLineColor_clicked()
+{
+    QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
+    emit SendLineColor(color_);
+}
+
+
+void MainWindow::on_PBVertexColor_clicked()
+{
+    QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
+    emit SendVertexColor(color_);
+}
+
+
+void MainWindow::on_PBFacetsColor_clicked()
+{
+    QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
+    emit SendFacetsColor(color_);
+}
+
+
+
+void MainWindow::on_PBLightColor_clicked()
+{
+    QColor color_ = QColorDialog::getColor(QColor(255,100,200,255));
+    emit SendLightColor(color_);
+}
+

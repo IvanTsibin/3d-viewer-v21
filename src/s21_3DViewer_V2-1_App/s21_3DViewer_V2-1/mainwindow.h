@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <QMainWindow>
 #include <QWidget>
+#include <QPalette>
 #include <cmath>
 #include <iostream>
 #include <clocale>
@@ -26,15 +27,6 @@ private slots:
   void on_MainWindow_iconSizeChanged(const QSize &iconSize);
   void on_InputObject_2_clicked();
   void on_PBDraw_2_clicked();
-  void on_SBRedColor_valueChanged(int arg1);
-  void on_SBGreenColor_valueChanged(int arg1);
-  void on_SBBlueColor_valueChanged(int arg1);
-  void on_SBRedColorLine_valueChanged(int arg1);
-  void on_SBGreenColorLine_valueChanged(int arg1);
-  void on_SBBlueColorLine_valueChanged(int arg1);
-  void on_SBRedColorVertex_valueChanged(int arg1);
-  void on_SBGreenColorVertex_valueChanged(int arg1);
-  void on_SBBlueColorVertex_valueChanged(int arg1);
   void on_SBLineWidth_valueChanged(int arg1);
   void on_SBVertexSize_valueChanged(int arg1);
   void on_CBVertexType_currentTextChanged(const QString &arg1);
@@ -45,6 +37,7 @@ private slots:
   void on_PBJpgPhoto_clicked();
   void on_PBBmpPhoto_clicked();
   void on_PBGifMovie_clicked();
+  void on_PByRotGif_clicked();
   void on_xSlider_valueChanged(int value);
   void on_ySlider_valueChanged(int value);
   void on_zSlider_valueChanged(int value);
@@ -63,14 +56,24 @@ private slots:
   void on_yLightSlider_valueChanged(int value);
   void on_DSBxLight_valueChanged(double arg1);
   void on_DSByLight_valueChanged(double arg1);
-  void on_PByRotGif_clicked();
   void on_CBNormalGuro_toggled(bool checked);
-  void on_SBRedFacets_valueChanged(int arg1);
-  void on_SBGreenFacets_valueChanged(int arg1);
-  void on_SBRedLight_valueChanged(int arg1);
-  void on_SBGreenLight_valueChanged(int arg1);
-  void on_SBBlueLight_valueChanged(int arg1);
-  void on_SBBlueFacets_valueChanged(int arg1);
+  void SetUpColorLablesColor(void);
+
+  void on_ALoadModel_triggered();
+  void on_ASaveFreeGif_triggered();
+  void on_ASaveYRotGif_triggered();
+  void on_ASaveJpg_triggered();
+  void on_ASaveBmp_triggered();
+
+  void on_PBSceneColor_clicked();
+
+  void on_PBLineColor_clicked();
+
+  void on_PBVertexColor_clicked();
+
+  void on_PBFacetsColor_clicked();
+
+  void on_PBLightColor_clicked();
 
 private:
   Ui::MainWindow *ui;
@@ -78,7 +81,9 @@ private:
   void ReadStartPos(void);
   void ApplySettingsToMainWindow(void);
   void ConnectControllerToMainWidget(void);
-  //    void updateSettings(settings_t *set);
+  void LoadFileName(void);
+  void Draw(void);
+
   Controller *MyController_;
   Settings_t MWSet_;
 
@@ -91,24 +96,11 @@ public slots:
 signals:
   void SendMainWindowSizeChanged(const QSize);
   void SendFileName(char *);
-  void SendRedColor(int);
-  void SendGreenColor(int);
-  void SendBlueColor(int);
-  void SendRedColorLine(int);
-  void SendGreenColorLine(int);
-  void SendBlueColorLine(int);
-  void SendRedColorVertex(int);
-  void SendGreenColorVertex(int);
-  void SendBlueColorVertex(int);
-
-  void SendRedColorFacets(int);
-  void SendGreenColorFacets(int);
-  void SendBlueColorFacets(int);
-
-  void SendRedColorLight(int);
-  void SendGreenColorLight(int);
-  void SendBlueColorLight(int);
-
+  void SendSceneColor(QColor);
+  void SendLineColor(QColor);
+  void SendVertexColor(QColor);
+  void SendFacetsColor(QColor);
+  void SendLightColor(QColor);
   void SendLineWidth(int);
   void SendVertexSize(int);
   void SendVertexType(int);

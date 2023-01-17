@@ -18,7 +18,7 @@ SavePictures::SavePictures() {
 
 void SavePictures::GetSavePictureSignal(char *str_file_name, int type,
                                         float aspect, int gifCounter) {
-  if (type == 2) {
+  if (type == 2 || type == 3) {
     aspect_ = aspect;
     MySaveGif_->ConnectWidget(controled_widget_);
     emit SaveGifFile(str_file_name, gifCounter, aspect);
